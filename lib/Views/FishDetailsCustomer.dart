@@ -1,6 +1,10 @@
+
 import 'package:epoissonnerie_front/MyCustomWidget/MyAppBar.dart';
+import 'package:epoissonnerie_front/Views/MarketPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'CustomerBottomNavigationBar.dart';
 
 class FishDetailsCustomer extends StatefulWidget {
   final Map<String, dynamic> poisson;
@@ -10,64 +14,31 @@ class FishDetailsCustomer extends StatefulWidget {
   State<FishDetailsCustomer> createState() => _FishDetailsCustomerState();
 }
 
-class _FishDetailsCustomerState extends State<FishDetailsCustomer> {
-  int valeur = 0;
-  final FishNumberController = TextEditingController();
-  void incrementer() {
-    setState(() {
-      valeur++;
-    });
-  }
+  class _FishDetailsCustomerState extends State<FishDetailsCustomer> {
 
-  void decrementer() {
-    setState(() {
-      valeur--;
-    });
-  }
+    final TextEditingController _fishNumberController = TextEditingController();
+    late int _fishNumber;
+    late int _prixPoisson;
+    late int _totalPrice;
 
-  @override
-  Widget build(BuildContext context) {
-    void showBottomAlertDialog(BuildContext context) {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            content: ConstrainedBox(
-              constraints: const BoxConstraints(minWidth: 200),
-              child: Container(
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(14.0),
-                    topRight: Radius.circular(14.0),
-                  ),
-                ),
-                child: const Text("Contenu de la boîte de dialogue ici"),
-              ),
-            ),
-            insetPadding: const EdgeInsets.only(bottom: 20.0),
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(14.0),
-                topRight: Radius.circular(14.0),
-              ),
-            ),
-            contentPadding: const EdgeInsets.all(20.0),
-            backgroundColor: Colors.white,
-            elevation: 10,
-          );
-        },
-      );
+    @override
+    void initState() {
+      super.initState();
+      _fishNumber = 0;
+      _prixPoisson = widget.poisson["Prix"];
+      _totalPrice = 0;
     }
 
+    @override
+    Widget build(BuildContext context) {
     final double currentheight = MediaQuery.of(context).size.height;
     final double currentWidth = MediaQuery.of(context).size.width;
-    final double height =
-        currentheight > 1000 ? currentheight * 0.09 : currentheight * 0.10;
-    final double expanded =
-        currentWidth > 600 ? currentWidth * 0.2 : currentheight * 0.25;
+    final double height = currentheight > 1000 ? currentheight * 0.09 : currentheight * 0.10;
+    final double expanded = currentWidth > 600 ? currentWidth * 0.2 : currentheight * 0.25;
     String image = "${widget.poisson["Image"]}";
     int quantite = widget.poisson["Quantité"];
     String producteur = widget.poisson["Producteur"];
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Monda-Bold'),
@@ -150,7 +121,6 @@ class _FishDetailsCustomerState extends State<FishDetailsCustomer> {
                                 barrierDismissible: true,
                                 context: context,
                                 builder: (BuildContext context) {
-                                  int valeur = 0;
                                   return CupertinoAlertDialog(
                                     title: Center(
                                         child: Text(
@@ -172,46 +142,83 @@ class _FishDetailsCustomerState extends State<FishDetailsCustomer> {
                                                 const TextStyle(fontSize: 16),
                                           ),
                                           Text(
-                                            "${valeur * widget.poisson["Prix"]}"
-                                                .toUpperCase(),
+                                          "$_totalPrice"
+                                              .toUpperCase(),
                                             style: const TextStyle(
                                                 fontSize: 16,
                                                 color: Colors.blue),
                                           ),
                                         ],
                                       ),
-                                      Text(
-                                        "Quantité :".toUpperCase(),
-                                        style: const TextStyle(fontSize: 16),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "Quantité :".toUpperCase(),
+                                            style: const TextStyle(fontSize: 16),
+                                          ),
+                                          SizedBox(
+                                            width: 100,
+                                            child: CupertinoTextField.borderless(
+                                              decoration: const BoxDecoration(
+                                                border: Border(
+                                                  bottom: BorderSide(
+                                                    color: Colors.black,
+                                                    width: 1.0,
+                                                  ),
+                                                ),
+                                              ),
+                                              keyboardType: TextInputType.number,
+                                              controller: _fishNumberController,
+                                              placeholder: '1',
+                                              maxLength: 4,
+                                              onChanged: (String value) {
+                                                setState(() {
+                                                  _fishNumber = int.tryParse(value.trim()) ?? 0;
+                                                  _totalPrice = _fishNumber * _prixPoisson;
+                                                });
+                                              },
+                                              textAlign: TextAlign.center,
+                                              style: const TextStyle(
+                                                color: Colors.green
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      const IconButton.filledTonal(
-                                        onPressed: null,
-                                        icon: Icon(
-                                          CupertinoIcons.add,
-                                        ),
-                                      ),
-                                      CupertinoTextField.borderless(
-                                        keyboardType: TextInputType.number,
-                                        controller: FishNumberController,
-                                        maxLength: 4,
-                                        textAlign: TextAlign.center,
-                                        style: const TextStyle(
-                                          backgroundColor: Colors.blueAccent,
-                                        ),
-                                      ),
-                                    ]),
-                                    actions: const [
+                                    ]
+                                    ),
+                                    actions:  [
                                       CupertinoDialogAction(
-                                        textStyle: TextStyle(
+                                        textStyle: const TextStyle(
                                             fontWeight: FontWeight.w800),
-                                        onPressed: null,
-                                        child: Text("CONFIRMER"),
+                                        onPressed:() {
+                                          if (_fishNumber <= quantite){
+                                            setState(() {
+                                              quantite -= _fishNumber;
+                                            });
+                                            Navigator.pop(context);
+                                            Navigator.push(context, MaterialPageRoute(builder: (context) => const CustomerBottomNavBar(),));
+                                            ScaffoldMessenger.of(context).showSnackBar(
+                                              const SnackBar(content: Text('Commande soumise avec succès !')),
+                                            );
+                                          } else {
+                                          Navigator.pop(context);
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                          const SnackBar(content: Text('La quantité commandée dépasse la quantité en stock !')),
+                                          );
+                                          }
+                                        },
+                                        child: const Text("CONFIRMER"),
                                       ),
                                       CupertinoDialogAction(
-                                        textStyle: TextStyle(
+                                        textStyle: const TextStyle(
                                             fontWeight: FontWeight.w800),
-                                        onPressed: null,
-                                        child: Text(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Text(
                                           "ANNULER",
                                           style: TextStyle(color: Colors.red),
                                         ),
@@ -290,37 +297,3 @@ class _FishDetailsCustomerState extends State<FishDetailsCustomer> {
     );
   }
 }
-// ScrollView(
-//                                             reverse: <Widget>[
-//                                               const Text("Quantité"),
-//                                               Row(
-//                                                 children: [
-//                                                   IconButton(
-//                                                     icon: const Icon(Icons.remove),
-//                                                     onPressed: () {
-//                                                       decrementer();
-//                                                     },
-//                                                   ),
-//                                                   SizedBox(
-//                                                     width: 100,
-//                                                     child: TextFormField(
-//                                                       textAlign: TextAlign.center,
-//                                                       keyboardType: TextInputType.number,
-//                                                       initialValue: valeur.toString(),
-//                                                       onChanged: (value) {
-//                                                         setState(() {
-//                                                           valeur = int.tryParse(value) ?? 0;
-//                                                         });
-//                                                       },
-//                                                     ),
-//                                                   ),
-//                                                   IconButton(
-//                                                     icon: const Icon(Icons.add),
-//                                                     onPressed: () {
-//                                                       incrementer();
-//                                                     },
-//                                                   ),
-//                                                 ],
-//                                               )
-//                                             ],
-//                                           )

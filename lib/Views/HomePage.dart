@@ -1,4 +1,5 @@
 import 'package:epoissonnerie_front/MyCustomWidget/MyTitle.dart';
+import 'package:epoissonnerie_front/Views/CustomerBottomNavigationBar.dart';
 import 'package:epoissonnerie_front/Views/LoginPage.dart';
 import 'package:epoissonnerie_front/Views/MarketPage.dart';
 import 'package:flutter/cupertino.dart';
@@ -46,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(
                         fontSize: 23)
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 100),
                 Padding(
                   padding: const EdgeInsets.only(top: 40.0),
                   child: ElevatedButton(
@@ -139,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const MarketPage()),
+                        MaterialPageRoute(builder: (context) => const CustomerBottomNavBar()),
                       );
                     },
                     child: const Text(

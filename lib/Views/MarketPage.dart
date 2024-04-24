@@ -1,5 +1,7 @@
+import 'package:epoissonnerie_front/Views/PurchasesPage.dart';
 import 'package:flutter/material.dart';
 import '../MyCustomWidget/MyAppBar.dart';
+import 'CustomerBottomNavigationBar.dart';
 import 'FishDetailsCustomer.dart';
 
 class MarketPage extends StatefulWidget {
@@ -10,6 +12,7 @@ class MarketPage extends StatefulWidget {
 }
 
 class _MarketPageState extends State<MarketPage> {
+
   final List<Map<String, dynamic>> poissons = [
     {
       "Nom": "tilapia de Ségou",
@@ -22,58 +25,9 @@ class _MarketPageState extends State<MarketPage> {
       "Nom": "Clarias",
       "Image": "assets/pictures/Tilapia2.jpg",
       "Prix": 2500,
-      "Quantité": 10,
-      "Producteur": "Abdoul Diarra",
-    },
-    {
-      "Nom": "Clarias",
-      "Image": "assets/pictures/Tilapia2.jpg",
-      "Prix": 250,
       "Quantité": 1,
       "Producteur": "Abdoul Diarra",
-    },
-    {
-      "Nom": "Clarias",
-      "Image": "assets/pictures/Tilapia2.jpg",
-      "Prix": 500,
-      "Quantité": 1,
-      "Producteur": "Abdoul Diarra",
-    },
-    {
-      "Nom": "Clarias",
-      "Image": "assets/pictures/Tilapia2.jpg",
-      "Prix": 2500,
-      "Quantité": 1,
-      "Producteur": "Abdoul",
-    },
-    {
-      "Nom": "Tilapia",
-      "Image": "assets/pictures/tilapia.jpeg",
-      "Prix": 200,
-      "Quantité": 1,
-      "Producteur": "Abdoul ",
-    },
-    {
-      "Nom": "Clarias",
-      "Image": "assets/pictures/Tilapia2.jpg",
-      "Prix": 2200,
-      "Quantité": 1,
-      "Producteur": "Abdoul Diarra",
-    },
-    {
-      "Nom": "Clarias",
-      "Image": "assets/pictures/Tilapia2.jpg",
-      "Prix": 2500,
-      "Quantité": 1,
-      "Producteur": "Abdoul Diarra",
-    },
-    {
-      "Nom": "Clarias",
-      "Image": "assets/pictures/Tilapia2.jpg",
-      "Prix": 2500,
-      "Quantité": 1,
-      "Producteur": "Abdoul Diarra",
-    },
+    }
   ];
 
   @override
