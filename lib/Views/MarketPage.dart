@@ -1,7 +1,6 @@
-import 'package:epoissonnerie_front/Views/PurchasesPage.dart';
+import 'package:epoissonnerie_front/Models/Poissons.dart';
 import 'package:flutter/material.dart';
 import '../MyCustomWidget/MyAppBar.dart';
-import 'CustomerBottomNavigationBar.dart';
 import 'FishDetailsCustomer.dart';
 
 class MarketPage extends StatefulWidget {
@@ -13,22 +12,23 @@ class MarketPage extends StatefulWidget {
 
 class _MarketPageState extends State<MarketPage> {
 
-  final List<Map<String, dynamic>> poissons = [
-    {
-      "Nom": "tilapia de Ségou",
-      "Image": "assets/pictures/tilapia.jpeg",
-      "Prix": 1500,
-      "Quantité": 0,
-      "Producteur": "Amadou Traoré",
-    },
-    {
-      "Nom": "Clarias",
-      "Image": "assets/pictures/Tilapia2.jpg",
-      "Prix": 2500,
-      "Quantité": 1,
-      "Producteur": "Abdoul Diarra",
-    }
+  final List<Poisson> poissons = [
+    Poisson(
+      nom: "Tilapia",
+      image: "assets/pictures/tilapia.jpeg",
+      prix: 1500,
+      quantite: 20,
+      producteur: "Amadou Traoré",
+    ),
+    Poisson(
+      nom: "Clarias",
+      image: "assets/pictures/Tilapia2.jpg",
+      prix: 2500,
+      quantite: 1,
+      producteur: "Abdoul Diarra",
+    ),
   ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class _MarketPageState extends State<MarketPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset(poissons[index]["Image"]),
+                          Image.asset(poissons[index].image,),
                           SizedBox(
                             height: 50,
                             child: Padding(
@@ -81,12 +81,12 @@ class _MarketPageState extends State<MarketPage> {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "${poissons[index]["Nom"]}".toUpperCase(),
+                                    poissons[index].nom.toUpperCase(),
                                     style: const TextStyle(
                                         fontFamily: 'Monda-Bold', fontSize: 22),
                                   ),
                                   Text(
-                                    "${poissons[index]["Prix"]}",
+                                    "${poissons[index].prix}",
                                     style: const TextStyle(
                                         fontFamily: 'Monda-Bold', fontSize: 22),
                                   )

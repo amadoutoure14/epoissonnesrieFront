@@ -1,13 +1,12 @@
-
+import 'package:epoissonnerie_front/Models/Poissons.dart';
 import 'package:epoissonnerie_front/MyCustomWidget/MyAppBar.dart';
-import 'package:epoissonnerie_front/Views/MarketPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'CustomerBottomNavigationBar.dart';
 
 class FishDetailsCustomer extends StatefulWidget {
-  final Map<String, dynamic> poisson;
+  final Poisson poisson;
   const FishDetailsCustomer({super.key, required this.poisson});
 
   @override
@@ -25,7 +24,7 @@ class FishDetailsCustomer extends StatefulWidget {
     void initState() {
       super.initState();
       _fishNumber = 0;
-      _prixPoisson = widget.poisson["Prix"];
+      _prixPoisson = widget.poisson.prix;
       _totalPrice = 0;
     }
 
@@ -35,9 +34,9 @@ class FishDetailsCustomer extends StatefulWidget {
     final double currentWidth = MediaQuery.of(context).size.width;
     final double height = currentheight > 1000 ? currentheight * 0.09 : currentheight * 0.10;
     final double expanded = currentWidth > 600 ? currentWidth * 0.2 : currentheight * 0.25;
-    String image = "${widget.poisson["Image"]}";
-    int quantite = widget.poisson["Quantité"];
-    String producteur = widget.poisson["Producteur"];
+    String image = widget.poisson.image;
+    int quantite = widget.poisson.quantite;
+    String producteur = widget.poisson.producteur;
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -62,7 +61,7 @@ class FishDetailsCustomer extends StatefulWidget {
                 child: Column(
                   children: [
                     Text(
-                      "${widget.poisson["Nom"]}".toUpperCase(),
+                      widget.poisson.nom.toUpperCase(),
                       style: const TextStyle(
                           fontFamily: 'Monda-Bold', fontSize: 23),
                     ),
@@ -79,7 +78,7 @@ class FishDetailsCustomer extends StatefulWidget {
                                 fontFamily: 'Monda-Bold', fontSize: 23),
                           ),
                           Text(
-                            " ${widget.poisson["Prix"]}",
+                            " ${widget.poisson.prix}",
                             style: const TextStyle(
                                 fontFamily: 'Monda-Bold', fontSize: 23),
                           ),

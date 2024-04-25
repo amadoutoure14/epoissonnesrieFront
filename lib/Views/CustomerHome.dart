@@ -1,6 +1,7 @@
               import 'package:flutter/material.dart';
 
-              import '../MyCustomWidget/MyAppBar.dart';
+              import '../Models/Poissons.dart';
+import '../MyCustomWidget/MyAppBar.dart';
               import 'FishDetailsCustomer.dart';
               class CustomerProfilPage extends StatefulWidget {
                 const CustomerProfilPage({super.key});
@@ -19,70 +20,39 @@
                     "Adresse":"Sirakoro, près du marché",
                     "role":"vendeur"
                   };
-                  final List<Map<String, dynamic>> poissons = [
-                    {
-                      "Nom": "tilapia de Ségou",
-                      "Image": "assets/pictures/tilapia.jpeg",
-                      "Prix": 1500,
-                      "Quantité": 0,
-                      "Producteur": "Amadou Traoré",
-                    },
-                    {
-                      "Nom": "Clarias",
-                      "Image": "assets/pictures/Tilapia2.jpg",
-                      "Prix": 2500,
-                      "Quantité": 10,
-                      "Producteur": "Abdoul Diarra",
-                    },
-                    {
-                      "Nom": "Clarias",
-                      "Image": "assets/pictures/Tilapia2.jpg",
-                      "Prix": 250,
-                      "Quantité": 0,
-                      "Producteur": "Abdoul Diarra",
-                    },
-                    {
-                      "Nom": "Clarias",
-                      "Image": "assets/pictures/Tilapia2.jpg",
-                      "Prix": 500,
-                      "Quantité": 0,
-                      "Producteur": "Abdoul Diarra",
-                    },
-                    {
-                      "Nom": "Clarias",
-                      "Image": "assets/pictures/Tilapia2.jpg",
-                      "Prix": 2500,
-                      "Quantité": 0,
-                      "Producteur": "Abdoul",
-                    },
-                    {
-                      "Nom": "Tilapia",
-                      "Image": "assets/pictures/tilapia.jpeg",
-                      "Prix": 200,
-                      "Quantité": 0,
-                      "Producteur": "Abdoul ",
-                    },
-                    {
-                      "Nom": "Clarias",
-                      "Image": "assets/pictures/Tilapia2.jpg",
-                      "Prix": 2200,
-                      "Quantité": 0,
-                      "Producteur": "Abdoul Diarra",
-                    },
-                    {
-                      "Nom": "Clarias",
-                      "Image": "assets/pictures/Tilapia2.jpg",
-                      "Prix": 2500,
-                      "Quantité": 0,
-                      "Producteur": "Abdoul Diarra",
-                    },
-                    {
-                      "Nom": "Clarias",
-                      "Image": "assets/pictures/Tilapia2.jpg",
-                      "Prix": 2500,
-                      "Quantité": 0,
-                      "Producteur": "Abdoul Diarra",
-                    },
+                  final List<Poisson> poissons = [
+                    Poisson(
+                      nom: "Tilapia",
+                      image: "assets/pictures/tilapia.jpeg",
+                      prix: 1500,
+                      quantite: 20,
+                      producteur: "Amadou Traoré",
+                    ),
+                    Poisson(
+                      nom: "Clarias",
+                      image: "assets/pictures/Tilapia2.jpg",
+                      prix: 2500,
+                      quantite: 1,
+                      producteur: "Abdoul Diarra",
+                    ),Poisson(
+                      nom: "Clarias",
+                      image: "assets/pictures/Tilapia2.jpg",
+                      prix: 2500,
+                      quantite: 1,
+                      producteur: "Abdoul Diarra",
+                    ),Poisson(
+                      nom: "Clarias",
+                      image: "assets/pictures/Tilapia2.jpg",
+                      prix: 2500,
+                      quantite: 1,
+                      producteur: "Abdoul Diarra",
+                    ),Poisson(
+                      nom: "Clarias",
+                      image: "assets/pictures/Tilapia2.jpg",
+                      prix: 2500,
+                      quantite: 1,
+                      producteur: "Abdoul Diarra",
+                    ),
                   ];
                   return MaterialApp(
                     theme: ThemeData(fontFamily: 'Monda-Bold'),
@@ -119,7 +89,7 @@
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                    Image.asset(poissons[index]["Image"]),
+                                    Image.asset(poissons[index].image),
                                     SizedBox(
                                         height: 50,
                                         child: Padding(
@@ -129,12 +99,12 @@
                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
                                                 Text(
-                                                  "${poissons[index]["Nom"]}".toUpperCase(),
+                                                  poissons[index].nom.toUpperCase(),
                                                   style: const TextStyle(
                                                       fontFamily: 'Monda-Bold', fontSize: 22),
                                                 ),
                                                 Text(
-                                                "${poissons[index]["Prix"]}",
+                                                "${poissons[index].prix}",
                                                 style: const TextStyle(
                                                 fontFamily: 'Monda-Bold', fontSize: 22),
                                                 )
