@@ -1,7 +1,7 @@
 import 'package:epoissonnerie_front/Models/Poissons.dart';
 import 'package:epoissonnerie_front/Models/Seller.dart';
 import 'package:epoissonnerie_front/Models/rolesType.dart';
-import 'package:epoissonnerie_front/MyCustomWidget/MyAppBar.dart';
+import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
 import 'package:flutter/material.dart';
 
 import 'FishDetailsCustomer.dart';

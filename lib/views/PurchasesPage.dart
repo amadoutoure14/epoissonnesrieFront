@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../MyCustomWidget/MyAppBar.dart';
+import '../widgets/MyAppBar.dart';
 import 'PurchasesDetailsPage.dart';
 class PurchasesPage extends StatefulWidget {
   const PurchasesPage({super.key});

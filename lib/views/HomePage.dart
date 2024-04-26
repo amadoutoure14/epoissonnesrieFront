@@ -1,4 +1,4 @@
-import 'package:epoissonnerie_front/MyCustomWidget/MyTitle.dart';
+import 'package:epoissonnerie_front/widgets/MyTitle.dart';
 import 'package:epoissonnerie_front/Views/CustomerBottomNavigationBar.dart';
 import 'package:epoissonnerie_front/Views/LoginPage.dart';
 import 'package:epoissonnerie_front/Views/MarketPage.dart';

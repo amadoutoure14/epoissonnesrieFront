@@ -71,8 +71,8 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
             BottomNavigationBarItem(
               backgroundColor: Colors.lightBlue,
               icon: _currentIndex == 3
-                  ? const Icon(Icons.shopping_cart)
-                  : const Icon(Icons.shopping_cart_outlined),
+                  ? const Icon(Icons.menu)
+                  : const Icon(Icons.menu_outlined),
               label: 'Menu'.toUpperCase(),
             ),
           ],

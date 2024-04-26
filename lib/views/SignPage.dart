@@ -1,5 +1,5 @@
 import 'package:epoissonnerie_front/Views/LoginPage.dart';
-import 'package:epoissonnerie_front/MyCustomWidget/MyAppBar.dart';
+import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
 import 'package:flutter/material.dart';
 class SignPage extends StatefulWidget {
 
@@ -142,27 +142,21 @@ class _SignPageState extends State<SignPage> {
                                 children: [
                                   ElevatedButton(
                                     style: const ButtonStyle(
-                                      shape: MaterialStatePropertyAll(
-                                        RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(Radius.circular(13)),
-                                        ),
-                                      ),
-                                      foregroundColor: MaterialStatePropertyAll(Colors.white),
-                                      backgroundColor: MaterialStatePropertyAll(Colors.lightBlue),
-                                      textStyle: MaterialStatePropertyAll(
-                                        TextStyle(
-                                          fontFamily: 'Monda-Bold',
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                      padding: MaterialStatePropertyAll(
-                                        EdgeInsets.only(
-                                          top: 20,
-                                          bottom: 20,
-                                          right: 25,
-                                          left: 25,
-                                        ),
-                                      ),
+                                        padding: MaterialStatePropertyAll(EdgeInsets.only(
+                                            top: 16, bottom: 16, right: 30, left: 30)),
+                                        backgroundColor: MaterialStatePropertyAll(Colors.lightBlue),
+                                        elevation: MaterialStatePropertyAll(9),
+                                        textStyle: MaterialStatePropertyAll(TextStyle(
+                                            fontFamily: 'Monda-Bold', fontSize: 16)),
+                                        foregroundColor:
+                                        MaterialStatePropertyAll(Colors.white),
+                                        shape: MaterialStatePropertyAll(
+                                            RoundedRectangleBorder(
+                                                borderRadius:
+                                                BorderRadius.all(Radius.circular(12)
+                                                )
+                                            )
+                                        )
                                     ),
                                     onPressed: () {
                                       Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
@@ -175,27 +169,21 @@ class _SignPageState extends State<SignPage> {
                                     padding: EdgeInsets.only(left: currentWidth * 0.12),
                                     child: ElevatedButton(
                                       style: const ButtonStyle(
-                                        shape: MaterialStatePropertyAll(
-                                          RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.all(Radius.circular(13)),
-                                          ),
-                                        ),
-                                        foregroundColor: MaterialStatePropertyAll(Colors.white),
-                                        backgroundColor: MaterialStatePropertyAll(Colors.red),
-                                        textStyle: MaterialStatePropertyAll(
-                                          TextStyle(
-                                            fontFamily: 'Monda-Bold',
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                        padding: MaterialStatePropertyAll(
-                                          EdgeInsets.only(
-                                            top: 20,
-                                            bottom: 20,
-                                            right: 25,
-                                            left: 25,
-                                          ),
-                                        ),
+                                          padding: MaterialStatePropertyAll(EdgeInsets.only(
+                                              top: 16, bottom: 16, right: 30, left: 30)),
+                                          backgroundColor: MaterialStatePropertyAll(Colors.red),
+                                          elevation: MaterialStatePropertyAll(9),
+                                          textStyle: MaterialStatePropertyAll(TextStyle(
+                                              fontFamily: 'Monda-Bold', fontSize: 16)),
+                                          foregroundColor:
+                                          MaterialStatePropertyAll(Colors.white),
+                                          shape: MaterialStatePropertyAll(
+                                              RoundedRectangleBorder(
+                                                  borderRadius:
+                                                  BorderRadius.all(Radius.circular(12)
+                                                  )
+                                              )
+                                          )
                                       ),
                                       onPressed: () {
                                         Navigator.pop(context);

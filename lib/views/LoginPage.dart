@@ -1,4 +1,4 @@
-import 'package:epoissonnerie_front/MyCustomWidget/MyAppBar.dart';
+import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
 import 'package:epoissonnerie_front/Views/MarketPage.dart';
 import 'package:epoissonnerie_front/Views/SellerFishes.dart';
 import 'package:flutter/material.dart';
@@ -91,27 +91,19 @@ class _LoginPageState extends State<LoginPage> {
                                   children: [
                                     ElevatedButton(
                                         style: const ButtonStyle(
+                                            padding: MaterialStatePropertyAll(EdgeInsets.only(
+                                                top: 16, bottom: 16, right: 30, left: 30)),
+                                            backgroundColor: MaterialStatePropertyAll(Colors.lightBlue),
+                                            elevation: MaterialStatePropertyAll(9),
+                                            textStyle: MaterialStatePropertyAll(TextStyle(
+                                                fontFamily: 'Monda-Bold', fontSize: 16)),
+                                            foregroundColor:
+                                            MaterialStatePropertyAll(Colors.white),
                                             shape: MaterialStatePropertyAll(
                                                 RoundedRectangleBorder(
-                                                    borderRadius: BorderRadius.all(
-                                                        Radius.circular(13)
+                                                    borderRadius:
+                                                    BorderRadius.all(Radius.circular(12)
                                                     )
-                                                )
-                                            ),
-                                            foregroundColor: MaterialStatePropertyAll(Colors.white),
-                                            backgroundColor: MaterialStatePropertyAll(Colors.lightBlue),
-                                            textStyle: MaterialStatePropertyAll(
-                                                TextStyle(
-                                                    fontFamily: 'Monda-Bold',
-                                                    fontSize: 15
-                                                )
-                                            ),
-                                            padding: MaterialStatePropertyAll(
-                                                EdgeInsets.only(
-                                                    top: 20,
-                                                    bottom: 20,
-                                                    right: 25,
-                                                    left: 25
                                                 )
                                             )
                                         ),
@@ -126,27 +118,19 @@ class _LoginPageState extends State<LoginPage> {
                                       padding: EdgeInsets.only(left: currentWidth * 0.12),
                                       child: ElevatedButton(
                                           style: const ButtonStyle(
+                                              padding: MaterialStatePropertyAll(EdgeInsets.only(
+                                                  top: 16, bottom: 16, right: 30, left: 30)),
+                                              backgroundColor: MaterialStatePropertyAll(Colors.red),
+                                              elevation: MaterialStatePropertyAll(9),
+                                              textStyle: MaterialStatePropertyAll(TextStyle(
+                                                  fontFamily: 'Monda-Bold', fontSize: 16)),
+                                              foregroundColor:
+                                              MaterialStatePropertyAll(Colors.white),
                                               shape: MaterialStatePropertyAll(
                                                   RoundedRectangleBorder(
-                                                      borderRadius: BorderRadius.all(
-                                                          Radius.circular(13)
+                                                      borderRadius:
+                                                      BorderRadius.all(Radius.circular(12)
                                                       )
-                                                  )
-                                              ),
-                                              foregroundColor: MaterialStatePropertyAll(Colors.white),
-                                              backgroundColor: MaterialStatePropertyAll(Colors.red),
-                                              textStyle: MaterialStatePropertyAll(
-                                                  TextStyle(
-                                                      fontFamily: 'Monda-Bold',
-                                                      fontSize: 15
-                                                  )
-                                              ),
-                                              padding: MaterialStatePropertyAll(
-                                                  EdgeInsets.only(
-                                                      top: 20,
-                                                      bottom: 20,
-                                                      right: 25,
-                                                      left: 25
                                                   )
                                               )
                                           ),

@@ -1,5 +1,5 @@
 import 'package:epoissonnerie_front/Models/Poissons.dart';
-import 'package:epoissonnerie_front/MyCustomWidget/MyAppBar.dart';
+import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -225,24 +225,23 @@ class FishDetailsCustomer extends StatefulWidget {
                                     ],
                                   );
                                 }),
-                            style: const ButtonStyle(
-                                padding: MaterialStatePropertyAll(
-                                    EdgeInsets.only(
-                                        top: 16,
-                                        bottom: 16,
-                                        right: 30,
-                                        left: 30)),
-                                backgroundColor:
-                                    MaterialStatePropertyAll(Colors.lightBlue),
-                                elevation: MaterialStatePropertyAll(9),
-                                textStyle: MaterialStatePropertyAll(TextStyle(
-                                    fontFamily: 'Monda-Bold', fontSize: 16)),
-                                foregroundColor:
-                                    MaterialStatePropertyAll(Colors.white),
-                                shape: MaterialStatePropertyAll(
-                                    RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(12))))),
+                      style: const ButtonStyle(
+                          padding: MaterialStatePropertyAll(EdgeInsets.only(
+                              top: 16, bottom: 16, right: 30, left: 30)),
+                          backgroundColor: MaterialStatePropertyAll(Colors.lightBlue),
+                          elevation: MaterialStatePropertyAll(9),
+                          textStyle: MaterialStatePropertyAll(TextStyle(
+                              fontFamily: 'Monda-Bold', fontSize: 16)),
+                          foregroundColor:
+                          MaterialStatePropertyAll(Colors.white),
+                          shape: MaterialStatePropertyAll(
+                              RoundedRectangleBorder(
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(12)
+                                  )
+                              )
+                          )
+                      ),
                             child: const Text("COMMANDE"),
                           )
                         : const ElevatedButton(
@@ -279,11 +278,15 @@ class FishDetailsCustomer extends StatefulWidget {
                           textStyle: MaterialStatePropertyAll(TextStyle(
                               fontFamily: 'Monda-Bold', fontSize: 16)),
                           foregroundColor:
-                              MaterialStatePropertyAll(Colors.white),
+                          MaterialStatePropertyAll(Colors.white),
                           shape: MaterialStatePropertyAll(
                               RoundedRectangleBorder(
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(12))))),
+                                  BorderRadius.all(Radius.circular(12)
+                                  )
+                              )
+                          )
+                      ),
                       child: const Text("RETOUR"),
                     ),
                   ],

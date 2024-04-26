@@ -1,6 +1,6 @@
 import 'package:epoissonnerie_front/Models/Poissons.dart';
 import 'package:flutter/material.dart';
-import '../MyCustomWidget/MyAppBar.dart';
+import '../widgets/MyAppBar.dart';
 import 'FishDetailsCustomer.dart';
 
 class MarketPage extends StatefulWidget {
