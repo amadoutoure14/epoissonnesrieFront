@@ -1,4 +1,5 @@
-import 'package:epoissonnerie_front/Models/Poissons.dart';
+import 'package:epoissonnerie_front/Models/Customer.dart';
+import 'package:epoissonnerie_front/Models/Poisson.dart';
 import 'package:epoissonnerie_front/Models/Seller.dart';
 import 'package:epoissonnerie_front/Models/rolesType.dart';
 import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
@@ -15,13 +16,6 @@ class SellerFishes extends StatefulWidget {
 class _SellerFishesState extends State<SellerFishes> {
   @override
   Widget build(BuildContext context) {
-    final Seller seller = Seller(
-        nom: "Amadou",
-        prenom: "Touré",
-        tel: 77227349,
-        adresse: "Sirakoro, près du marché",
-        role: roleType.seller
-    );
     final List<Poisson> poissons = [
       Poisson(
         nom: "Tilapia",

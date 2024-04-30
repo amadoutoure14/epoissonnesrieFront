@@ -90,6 +90,122 @@ class _ProfilPageState extends State<ProfilPage> {
               delegate: SliverChildListDelegate(
                 [
 
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30.0),
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: const BoxDecoration(
+                              shape: BoxShape.circle
+                          ),
+                          child: Image.asset(photo),
+                        ),
+                        Text(nom.toUpperCase(),style: const TextStyle(fontSize: 30),),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 120.0),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Image.asset(tel),
+                                  const SizedBox(width: 20),
+                                  isEnable == false ? Text(
+                                    telephone
+                                        .toUpperCase(),
+                                    style: const TextStyle(
+                                        fontSize: 22
+                                    ),
+                                  ):
+                                  TextField(
+                                    keyboardType:TextInputType.phone,
+                                    controller: telcontroller,
+                                  )
+                                ],
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 28.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image.asset(maps),
+                                    const SizedBox(width: 20),
+                                    Text(adresse.toUpperCase(),style: const TextStyle(
+                                        fontSize: 22
+                                    ),)
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: currentHeight * 0.1),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                            style: const ButtonStyle(
+                                padding: MaterialStatePropertyAll(EdgeInsets.only(
+                                    top: 16, bottom: 16, right: 30, left: 30)),
+                                backgroundColor: MaterialStatePropertyAll(Color(0xFF77B5FE)),
+                                elevation: MaterialStatePropertyAll(9),
+                                textStyle: MaterialStatePropertyAll(TextStyle(
+                                    fontFamily: 'Monda-Bold', fontSize: 16)),
+                                foregroundColor:
+                                MaterialStatePropertyAll(Colors.white),
+                                shape: MaterialStatePropertyAll(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                        BorderRadius.all(Radius.circular(12)
+                                        )
+                                    )
+                                )
+                            ),
+                            onPressed: () {
+                              null;
+                            },
+                            child: Center(
+                              child: changed == false ? const Text("MODIFIER"): const Text("CONFIRMER"),
+                            )
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: currentWidth * 0.12),
+                          child: ElevatedButton(
+                              style: const ButtonStyle(
+                                  padding: MaterialStatePropertyAll(EdgeInsets.only(
+                                      top: 16, bottom: 16, right: 30, left: 30)),
+                                  backgroundColor: MaterialStatePropertyAll(Colors.red),
+                                  elevation: MaterialStatePropertyAll(9),
+                                  textStyle: MaterialStatePropertyAll(TextStyle(
+                                      fontFamily: 'Monda-Bold', fontSize: 16)),
+                                  foregroundColor:
+                                  MaterialStatePropertyAll(Colors.white),
+                                  shape: MaterialStatePropertyAll(
+                                      RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius.all(Radius.circular(12)
+                                          )
+                                      )
+                                  )
+                              ),
+                              onPressed: () {
+                                null;
+                              },
+                              child:  Center(
+                                child: changed == false ? const Text("DECONNEXION"): const Text("ANNULER"),
+                              )
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ]
               ),
             )

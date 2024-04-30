@@ -1,6 +1,6 @@
 import 'package:epoissonnerie_front/Models/Customer.dart';
 import 'package:flutter/material.dart';
-import '../Models/Poissons.dart';
+import '../Models/Poisson.dart';
 import '../widgets/MyAppBar.dart';
 import 'FishDetailsCustomer.dart';
 class CustomerProfilPage extends StatefulWidget {

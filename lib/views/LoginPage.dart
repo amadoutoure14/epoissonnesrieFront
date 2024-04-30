@@ -1,3 +1,5 @@
+import 'package:epoissonnerie_front/Models/Seller.dart';
+import 'package:epoissonnerie_front/models/User.dart';
 import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
 import 'package:epoissonnerie_front/Views/MarketPage.dart';
 import 'package:epoissonnerie_front/Views/SellerFishes.dart';
@@ -14,6 +16,7 @@ class _LoginPageState extends State<LoginPage> {
   final mdpcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+
     final double currentWidth = MediaQuery.of(context).size.width;
     final double currentHeight = MediaQuery.of(context).size.height;
     final double inputWidth = currentWidth > 600 ? 580 : 350;
@@ -84,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(top: currentHeight * 0.1),
+                                padding: EdgeInsets.only(top: currentHeight * 0.2),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -93,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                                         style: const ButtonStyle(
                                             padding: MaterialStatePropertyAll(EdgeInsets.only(
                                                 top: 16, bottom: 16, right: 30, left: 30)),
-                                            backgroundColor: MaterialStatePropertyAll(Colors.lightBlue),
+                                            backgroundColor: MaterialStatePropertyAll(Color(0xFF77B5FE)),
                                             elevation: MaterialStatePropertyAll(9),
                                             textStyle: MaterialStatePropertyAll(TextStyle(
                                                 fontFamily: 'Monda-Bold', fontSize: 16)),
@@ -108,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                                             )
                                         ),
                                         onPressed: () {
-                                          Navigator.push(context, MaterialPageRoute(builder: (context) => const SellerFishes()));
+                                        null;
                                         },
                                         child: const Center(
                                           child: Text("CONNEXION"),

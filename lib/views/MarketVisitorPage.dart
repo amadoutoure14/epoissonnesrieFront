@@ -1,29 +1,40 @@
-import 'package:epoissonnerie_front/Models/rolesType.dart';
+import 'package:epoissonnerie_front/Models/Poisson.dart';
+import 'package:epoissonnerie_front/Views/LoginPage.dart';
+import 'package:epoissonnerie_front/Views/MarketPage.dart';
+import 'package:epoissonnerie_front/Views/PurchasesPage.dart';
 import 'package:flutter/material.dart';
-import 'MarketPage.dart';
-import 'PurchasesPage.dart';
-import 'ProfilPage.dart';
-import 'package:epoissonnerie_front/Models/Customer.dart';
 
-class CustomerBottomNavBar extends StatefulWidget {
-  const CustomerBottomNavBar({super.key});
+import '../widgets/MyAppBar.dart';
+import 'FishDetailsCustomer.dart';
+class VisitorBottomNavigationBarPage extends StatefulWidget {
+  const VisitorBottomNavigationBarPage({super.key});
 
   @override
-  State<CustomerBottomNavBar> createState() => _CustomerBottomNavBarState();
+  State<VisitorBottomNavigationBarPage> createState() => _VisitorBottomNavigationBarPageState();
 }
 
-class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
+class _VisitorBottomNavigationBarPageState extends State<VisitorBottomNavigationBarPage> {
   int _currentIndex = 0;
-  final Customer customer = Customer(
-    nomComplet: "Oumar Touré",
-    tel: 72786582,
-    photo: "assets/pictures/Customer.png",
-    adresse: "Sirakoro Méguetana",
-  );
+  final List<Poisson> poissons = [
+    Poisson(
+      nom: "Tilapia",
+      image: "assets/pictures/tilapia.jpeg",
+      prix: 1500,
+      quantite: 20,
+      producteur: "Amadou Traoré",
+    ),
+    Poisson(
+      nom: "Clarias",
+      image: "assets/pictures/Tilapia2.jpg",
+      prix: 2500,
+      quantite: 1,
+      producteur: "Abdoul Diarra",
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    final String photo = customer.photo;
+
     return Scaffold(
       body: _getBody(_currentIndex),
       bottomNavigationBar: BottomNavigationBar(
@@ -42,8 +53,8 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
           BottomNavigationBarItem(
             backgroundColor: const Color(0xFF77B5FE),
             icon: _currentIndex == 1
-                ? const Icon(Icons.shopping_basket_sharp)
-                : const Icon(Icons.shopping_basket_outlined),
+                ? const Icon(Icons.shopping_cart)
+                : const Icon(Icons.shopping_cart_outlined),
             label: 'ACHATS'.toUpperCase(),
           ),
           BottomNavigationBarItem(
@@ -53,9 +64,8 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.orange, width: 2.0),
               ),
-              child: Image.asset(photo, width: 28, height: 28),
-            )
-                : Image.asset(photo, width: 30, height: 30),
+              child: const Icon(Icons.account_circle) ,
+            ) : const Icon(Icons.account_circle_outlined),
             label: 'PROFIL'.toUpperCase(),
           ),
           BottomNavigationBarItem(
@@ -77,8 +87,8 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
       case 1:
         return const PurchasesPage();
       case 2:
-        return ProfilPage(customer: customer);
-        default:
+        return const LoginPage();
+      default:
         return const MarketPage();
     }
   }
@@ -128,7 +138,7 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
 
   void _onItemTapped(int index) {
     if (index == 3) {
-     showModal(context);
+      showModal(context);
     }
     setState(() {
       _currentIndex = index;

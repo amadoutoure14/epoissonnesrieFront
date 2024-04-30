@@ -1,3 +1,4 @@
+import 'package:epoissonnerie_front/models/Purchase.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/MyAppBar.dart';
@@ -10,6 +11,7 @@ class PurchasesPage extends StatefulWidget {
 }
 
 class _PurchasesPageState extends State<PurchasesPage> {
+
   final List<Map<String, dynamic>> achats = [
   {
     "Nom": "Tilapia",
@@ -52,7 +54,7 @@ class _PurchasesPageState extends State<PurchasesPage> {
             const SliverAppBar(
               scrolledUnderElevation: 9,
               floating: true,
-              backgroundColor: Colors.blue,
+              backgroundColor: Color(0xFF77B5FE),
               expandedHeight: 220.0,
               flexibleSpace: FlexibleSpaceBar(
                 background: MyAppBar(title: 'ACHATS'),
@@ -77,7 +79,7 @@ class _PurchasesPageState extends State<PurchasesPage> {
                       margin: const EdgeInsets.only(top: 12, right: 12, left: 12),
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10))),
-                      color: Colors.lightBlue,
+                      color: const Color(0xFF77B5FE),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,

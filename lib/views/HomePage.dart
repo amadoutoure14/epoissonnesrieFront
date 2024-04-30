@@ -1,3 +1,4 @@
+import 'package:epoissonnerie_front/views/SellerBottomNavigationBar.dart';
 import 'package:epoissonnerie_front/widgets/MyTitle.dart';
 import 'package:epoissonnerie_front/Views/CustomerBottomNavigationBar.dart';
 import 'package:epoissonnerie_front/Views/LoginPage.dart';
@@ -129,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.only(top: 20.0),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xff77b5fe),
+                      backgroundColor: const Color(0xFF77B5FE),
                       foregroundColor: Colors.white,
                       elevation: 5,
                       minimumSize: const Size(280, 56),
@@ -140,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const CustomerBottomNavBar()),
+                        MaterialPageRoute(builder: (context) => const SellerBottomNavigationBar()),
                       );
                     },
                     child: const Text(

@@ -77,7 +77,7 @@ class _PurchasesDetailsPageState extends State<PurchasesDetailsPage> {
                           style: const ButtonStyle(
                               padding: MaterialStatePropertyAll(EdgeInsets.only(
                                   top: 16, bottom: 16, right: 30, left: 30)),
-                              backgroundColor: MaterialStatePropertyAll(Colors.lightBlue),
+                              backgroundColor: MaterialStatePropertyAll(Color(0xFF77B5FE)),
                               elevation: MaterialStatePropertyAll(9),
                               textStyle: MaterialStatePropertyAll(TextStyle(
                                   fontFamily: 'Monda-Bold', fontSize: 16)),

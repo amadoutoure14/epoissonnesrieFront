@@ -9,7 +9,7 @@ class MyAppBar extends StatelessWidget {
     final double paddingColumn = currentWidth > 600 ? 12 : 50;
     final double currentContainerWidth = currentWidth > 600 ? 12 : 23;
     return  Container(
-      color: Colors.blue,
+      color: const Color(0xFF77B5FE),
       width:currentContainerWidth,
       child: Padding(
         padding: EdgeInsets.only(top: paddingColumn),

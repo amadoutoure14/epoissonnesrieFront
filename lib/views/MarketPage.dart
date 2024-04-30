@@ -1,4 +1,4 @@
-import 'package:epoissonnerie_front/Models/Poissons.dart';
+import 'package:epoissonnerie_front/Models/Poisson.dart';
 import 'package:flutter/material.dart';
 import '../widgets/MyAppBar.dart';
 import 'FishDetailsCustomer.dart';
@@ -41,7 +41,7 @@ class _MarketPageState extends State<MarketPage> {
             const SliverAppBar(
               scrolledUnderElevation: 9,
               floating: true,
-              backgroundColor: Colors.blue,
+              backgroundColor: Color(0xFF77B5FE),
               expandedHeight: 220.0,
               flexibleSpace: FlexibleSpaceBar(
                 background: MyAppBar(title: 'BOUTIQUE'),
@@ -66,7 +66,7 @@ class _MarketPageState extends State<MarketPage> {
                       margin: const EdgeInsets.only(top: 12, right: 12, left: 12),
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10))),
-                      color: Colors.lightBlue,
+                      color: const Color(0xFF77B5FE),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,

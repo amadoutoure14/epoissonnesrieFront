@@ -1,4 +1,6 @@
-import 'package:epoissonnerie_front/Models/Poissons.dart';
+import 'dart:ui';
+
+import 'package:epoissonnerie_front/Models/Poisson.dart';
 import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -145,7 +147,7 @@ class FishDetailsCustomer extends StatefulWidget {
                                               .toUpperCase(),
                                             style: const TextStyle(
                                                 fontSize: 16,
-                                                color: Colors.blue),
+                                                color: Color(0xFF77B5FE)),
                                           ),
                                         ],
                                       ),
@@ -200,13 +202,28 @@ class FishDetailsCustomer extends StatefulWidget {
                                             Navigator.pop(context);
                                             Navigator.push(context, MaterialPageRoute(builder: (context) => const CustomerBottomNavBar(),));
                                             ScaffoldMessenger.of(context).showSnackBar(
-                                              const SnackBar(content: Text('Commande soumise avec succès !')),
+                                               SnackBar(
+                                                  backgroundColor: const Color(0xFFFEA677),
+                                                  content: Center(
+                                                      child: Text('Commande soumise avec succès !'.toUpperCase(),style: const TextStyle(
+                                                        fontWeight:FontWeight.bold
+                                                      ),)
+                                                  )
+                                              ),
                                             );
                                           } else {
                                           Navigator.pop(context);
-                                          ScaffoldMessenger.of(context).showSnackBar(
-                                          const SnackBar(content: Text('La quantité commandée dépasse la quantité en stock !')),
-                                          );
+                                            ScaffoldMessenger.of(context).showSnackBar(
+                                           SnackBar(
+                                              backgroundColor: const Color(0xFFFEA677),
+                                              content: Center(
+                                                  child: Text(
+                                                      'La quantité commandée dépasse la quantité en stock !'.toUpperCase(),
+                                                      style: const TextStyle(fontWeight:FontWeight.bold)
+                                                  )
+                                              ),
+                                           )
+                                            );
                                           }
                                         },
                                         child: const Text("CONFIRMER"),
@@ -225,10 +242,10 @@ class FishDetailsCustomer extends StatefulWidget {
                                     ],
                                   );
                                 }),
-                      style: const ButtonStyle(
+                          style: const ButtonStyle(
                           padding: MaterialStatePropertyAll(EdgeInsets.only(
                               top: 16, bottom: 16, right: 30, left: 30)),
-                          backgroundColor: MaterialStatePropertyAll(Colors.lightBlue),
+                          backgroundColor: MaterialStatePropertyAll(Color(0xFF77B5FE)),
                           elevation: MaterialStatePropertyAll(9),
                           textStyle: MaterialStatePropertyAll(TextStyle(
                               fontFamily: 'Monda-Bold', fontSize: 16)),
