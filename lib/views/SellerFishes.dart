@@ -5,7 +5,7 @@ import 'package:epoissonnerie_front/Models/rolesType.dart';
 import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
 import 'package:flutter/material.dart';
 
-import 'FishDetailsCustomer.dart';
+import 'FishDetails.dart';
 class SellerFishes extends StatefulWidget {
   const SellerFishes({super.key});
 
@@ -51,7 +51,7 @@ class _SellerFishesState extends State<SellerFishes> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => FishDetailsCustomer(
+                        builder: (context) => FishDetails(
                           poisson: poissons[index],
                         ),
                       ),
@@ -62,7 +62,7 @@ class _SellerFishesState extends State<SellerFishes> {
                     margin: const EdgeInsets.only(top: 12, right: 12, left: 12),
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
-                    color: Colors.lightBlue,
+                    color: const Color(0xFF77B5FE),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,

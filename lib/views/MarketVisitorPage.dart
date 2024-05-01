@@ -5,7 +5,7 @@ import 'package:epoissonnerie_front/Views/PurchasesPage.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/MyAppBar.dart';
-import 'FishDetailsCustomer.dart';
+import 'FishDetails.dart';
 class VisitorBottomNavigationBarPage extends StatefulWidget {
   const VisitorBottomNavigationBarPage({super.key});
 

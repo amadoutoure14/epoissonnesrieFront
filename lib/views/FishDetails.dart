@@ -7,15 +7,15 @@ import 'package:flutter/material.dart';
 
 import 'CustomerBottomNavigationBar.dart';
 
-class FishDetailsCustomer extends StatefulWidget {
+class FishDetails extends StatefulWidget {
   final Poisson poisson;
-  const FishDetailsCustomer({super.key, required this.poisson});
+  const FishDetails({super.key, required this.poisson});
 
   @override
-  State<FishDetailsCustomer> createState() => _FishDetailsCustomerState();
+  State<FishDetails> createState() => _FishDetailsState();
 }
 
-  class _FishDetailsCustomerState extends State<FishDetailsCustomer> {
+  class _FishDetailsState extends State<FishDetails> {
 
     final TextEditingController _fishNumberController = TextEditingController();
     late int _fishNumber;
@@ -200,7 +200,6 @@ class FishDetailsCustomer extends StatefulWidget {
                                               quantite -= _fishNumber;
                                             });
                                             Navigator.pop(context);
-                                            Navigator.push(context, MaterialPageRoute(builder: (context) => const CustomerBottomNavBar(),));
                                             ScaffoldMessenger.of(context).showSnackBar(
                                                SnackBar(
                                                   backgroundColor: const Color(0xFFFEA677),

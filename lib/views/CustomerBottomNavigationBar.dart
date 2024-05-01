@@ -14,16 +14,9 @@ class CustomerBottomNavBar extends StatefulWidget {
 
 class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
   int _currentIndex = 0;
-  final Customer customer = Customer(
-    nomComplet: "Oumar Touré",
-    tel: 72786582,
-    photo: "assets/pictures/Customer.png",
-    adresse: "Sirakoro Méguetana",
-  );
-
   @override
   Widget build(BuildContext context) {
-    final String photo = customer.photo;
+
     return Scaffold(
       body: _getBody(_currentIndex),
       bottomNavigationBar: BottomNavigationBar(
@@ -53,9 +46,9 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.orange, width: 2.0),
               ),
-              child: Image.asset(photo, width: 28, height: 28),
+              child: Icon(Icons.account_circle),
             )
-                : Image.asset(photo, width: 30, height: 30),
+                :  Icon(Icons.account_circle_outlined),
             label: 'PROFIL'.toUpperCase(),
           ),
           BottomNavigationBarItem(
@@ -77,7 +70,7 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
       case 1:
         return const PurchasesPage();
       case 2:
-        return ProfilPage(customer: customer);
+        return ProfilPage();
         default:
         return const MarketPage();
     }

@@ -2,8 +2,8 @@ import 'package:epoissonnerie_front/Models/Customer.dart';
 import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
 import 'package:flutter/material.dart';
 class ProfilPage extends StatefulWidget {
-  final Customer customer;
-  const ProfilPage({super.key, required this.customer});
+
+  const ProfilPage({super.key});
 
   @override
   State<ProfilPage> createState() => _ProfilPageState();
@@ -12,7 +12,7 @@ class ProfilPage extends StatefulWidget {
 class _ProfilPageState extends State<ProfilPage> {
   bool changed = false;
   bool isEnable = false;
-  late TextEditingController telcontroller;
+  final telcontroller = TextEditingController();
 
 
 
@@ -21,8 +21,6 @@ class _ProfilPageState extends State<ProfilPage> {
          super.initState();
          bool isEnable = false;
          bool changed = false;
-         telcontroller = TextEditingController(text: "${widget.customer.tel}");
-
   }
   @override
   void dispose() {
@@ -30,34 +28,6 @@ class _ProfilPageState extends State<ProfilPage> {
 
     super.dispose();
   }
-  //late TextEditingController _nomController;
-  //   late TextEditingController _telephoneController;
-  //   late TextEditingController _adresseController;
-  //   late String _photoPath = "";
-  //   @override
-  //   void initState() {
-  //     super.initState();
-  //     _nomController = TextEditingController(text: "${widget.customerInfo["NomComplet"]}");
-  //     _telephoneController = TextEditingController(text: "${widget.customerInfo["Telephone"]}");
-  //     _adresseController = TextEditingController(text: "${widget.customerInfo["Adresse"]}");
-  //     _photoPath = "${widget.customerInfo["Photo"]}";
-  //   }
-  //   @override
-  //   void dispose() {
-  //     _nomController.dispose();
-  //     _telephoneController.dispose();
-  //     _adresseController.dispose();
-  //     super.dispose();
-  //   }
-  //   Future<void> _pickImage() async {
-  //     final ImagePicker picker = ImagePicker();
-  //     final XFile? pickedFile = await picker.pickImage(source: ImageSource.gallery);
-  //     if (pickedFile != null) {
-  //       setState(() {
-  //         _photoPath = pickedFile.path;
-  //       });
-  //     }
-  //   }
 
   @override
   Widget build(BuildContext context) {
@@ -66,10 +36,6 @@ class _ProfilPageState extends State<ProfilPage> {
     final double currentHeight = MediaQuery.of(context).size.height;
     final double inputWidth = currentWidth > 600 ? 580 : 350;
     final double textSize = currentWidth > 600 ? 14 : 13;
-    String photo = widget.customer.photo;
-    String telephone = "${widget.customer.tel}";
-    String nom = widget.customer.nomComplet;
-    String adresse = widget.customer.adresse;
     String tel = "assets/pictures/Telephone.png";
     String maps = "assets/pictures/Google maps.png";
 
@@ -89,7 +55,6 @@ class _ProfilPageState extends State<ProfilPage> {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-
                   Padding(
                     padding: const EdgeInsets.only(top: 30.0),
                     child: Column(
@@ -98,9 +63,9 @@ class _ProfilPageState extends State<ProfilPage> {
                           decoration: const BoxDecoration(
                               shape: BoxShape.circle
                           ),
-                          child: Image.asset(photo),
+                          child: const Icon(Icons.account_circle),
                         ),
-                        Text(nom.toUpperCase(),style: const TextStyle(fontSize: 30),),
+                        Text("A".toUpperCase(),style: const TextStyle(fontSize: 30),),
                         Padding(
                           padding: const EdgeInsets.only(top: 120.0),
                           child: Column(
@@ -112,7 +77,7 @@ class _ProfilPageState extends State<ProfilPage> {
                                   Image.asset(tel),
                                   const SizedBox(width: 20),
                                   isEnable == false ? Text(
-                                    telephone
+                                    "tel"
                                         .toUpperCase(),
                                     style: const TextStyle(
                                         fontSize: 22
@@ -132,7 +97,7 @@ class _ProfilPageState extends State<ProfilPage> {
                                   children: [
                                     Image.asset(maps),
                                     const SizedBox(width: 20),
-                                    Text(adresse.toUpperCase(),style: const TextStyle(
+                                    Text("adresse".toUpperCase(),style: const TextStyle(
                                         fontSize: 22
                                     ),)
                                   ],

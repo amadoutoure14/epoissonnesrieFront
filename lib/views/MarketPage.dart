@@ -1,7 +1,7 @@
 import 'package:epoissonnerie_front/Models/Poisson.dart';
 import 'package:flutter/material.dart';
 import '../widgets/MyAppBar.dart';
-import 'FishDetailsCustomer.dart';
+import 'FishDetails.dart';
 
 class MarketPage extends StatefulWidget {
   const MarketPage({super.key});
@@ -55,7 +55,7 @@ class _MarketPageState extends State<MarketPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => FishDetailsCustomer(
+                          builder: (context) => FishDetails(
                             poisson: poissons[index],
                           ),
                         ),

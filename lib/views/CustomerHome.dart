@@ -2,7 +2,7 @@ import 'package:epoissonnerie_front/Models/Customer.dart';
 import 'package:flutter/material.dart';
 import '../Models/Poisson.dart';
 import '../widgets/MyAppBar.dart';
-import 'FishDetailsCustomer.dart';
+import 'FishDetails.dart';
 class CustomerProfilPage extends StatefulWidget {
   const CustomerProfilPage({super.key});
   @override
@@ -72,7 +72,7 @@ class _CustomerProfilPageState extends State<CustomerProfilPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => FishDetailsCustomer(
+                            builder: (context) => FishDetails(
                               poisson: poissons[index],
                             ),
                           ),

@@ -1,10 +1,9 @@
-import 'package:epoissonnerie_front/Models/Customer.dart';
-import 'package:epoissonnerie_front/Models/Seller.dart';
+import 'package:epoissonnerie_front/Views/SellerFishes.dart';
+import 'package:epoissonnerie_front/views/SellerCommandePage.dart';
 import 'package:flutter/material.dart';
 
 import 'MarketPage.dart';
 import 'ProfilPage.dart';
-import 'PurchasesPage.dart';
 class SellerBottomNavigationBar extends StatefulWidget {
   const SellerBottomNavigationBar({super.key});
 
@@ -14,15 +13,8 @@ class SellerBottomNavigationBar extends StatefulWidget {
 
 class _SellerBottomNavigationBarState extends State<SellerBottomNavigationBar> {
   int _currentIndex = 0;
-  final Customer customer = Customer(
-    nomComplet: "Oumar Touré",
-    tel: 72786582,
-    photo: "assets/pictures/Customer.png",
-    adresse: "Sirakoro Méguetana",
-  );
   @override
   Widget build(BuildContext context) {
-    final String photo = customer.photo;
     return Scaffold(
       body: _getBody(_currentIndex),
       bottomNavigationBar: BottomNavigationBar(
@@ -41,25 +33,32 @@ class _SellerBottomNavigationBarState extends State<SellerBottomNavigationBar> {
           BottomNavigationBarItem(
             backgroundColor: const Color(0xFF77B5FE),
             icon: _currentIndex == 1
-                ? const Icon(Icons.shopping_cart)
+                ? const Icon(Icons.account_balance_wallet)
+                : const Icon(Icons.account_balance_wallet),
+            label: 'Poissons'.toUpperCase(),
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: const Color(0xFF77B5FE),
+            icon: _currentIndex == 2
+                ? const Icon(Icons.shopping_cart_rounded)
                 : const Icon(Icons.shopping_cart_outlined),
             label: 'Commandes'.toUpperCase(),
           ),
           BottomNavigationBarItem(
             backgroundColor: const Color(0xFF77B5FE),
-            icon: _currentIndex == 2 ? Container(
+            icon: _currentIndex == 3 ? Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.orange, width: 2.0),
               ),
-              child: Image.asset(photo, width: 28, height: 28),
+              child: const Icon(Icons.account_circle),
             )
-                : Image.asset(photo, width: 30, height: 30),
+                : const Icon(Icons.account_circle_outlined),
             label: 'PROFIL'.toUpperCase(),
           ),
           BottomNavigationBarItem(
             backgroundColor: const Color(0xFF77B5FE),
-            icon: _currentIndex == 3
+            icon: _currentIndex == 4
                 ? const Icon(Icons.menu)
                 : const Icon(Icons.menu_outlined),
             label: 'Menu'.toUpperCase(),
@@ -74,9 +73,11 @@ class _SellerBottomNavigationBarState extends State<SellerBottomNavigationBar> {
       case 0:
         return const MarketPage();
       case 1:
-        return const PurchasesPage();
+       return const SellerFishes();
       case 2:
-        return ProfilPage(customer: customer);
+        return const SellerCommandePage();
+      case 3:
+        return const ProfilPage();
       default:
         return const MarketPage();
     }
@@ -109,27 +110,34 @@ class _SellerBottomNavigationBarState extends State<SellerBottomNavigationBar> {
                         ],
                       ),
                     ),
-                  )
+                  ),
+                  Card(
+                    elevation: 12,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset("assets/pictures/logo.png", width: 20, height: 20),
+                          const SizedBox(height: 8),
+                          Text("BOUTIQUE".toUpperCase(), textAlign: TextAlign.center)
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               )
             ],
           ),
         ),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: const Text('Fermer'),
-          )
-        ],
       ),
     );
   }
 
 
   void _onItemTapped(int index) {
-    if (index == 3) {
+    if (index == 4) {
       showModal(context);
     }
     setState(() {

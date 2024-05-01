@@ -1,8 +1,7 @@
-import 'package:epoissonnerie_front/Models/Seller.dart';
+import 'package:epoissonnerie_front/Models/Customer.dart';
+import 'package:epoissonnerie_front/models/Seller.dart';
 import 'package:epoissonnerie_front/models/User.dart';
 import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
-import 'package:epoissonnerie_front/Views/MarketPage.dart';
-import 'package:epoissonnerie_front/Views/SellerFishes.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -11,12 +10,14 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 class _LoginPageState extends State<LoginPage> {
+  Customer customer = Customer(nomComplet: "Amadou Touré", tel: 99314045, photo: "assets/pictures/vendeur.png", adresse: "Bamako, Sirakoro Méguetana,Rue 123, Porte 32");
+  SellerFish seller = SellerFish(nomComplet: "Boubacar Diarra", tel: 78374927, adresse: "Bamako, Bacaribougou,Rue 143, Porte 62", photo: "assets/pictures/Customer.png");
   bool _isObscure = true;
   final telcontroller = TextEditingController();
   final mdpcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-
+    User user = User(tel: int.parse(telcontroller.text), mdp: mdpcontroller.text);
     final double currentWidth = MediaQuery.of(context).size.width;
     final double currentHeight = MediaQuery.of(context).size.height;
     final double inputWidth = currentWidth > 600 ? 580 : 350;
