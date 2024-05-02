@@ -1,5 +1,3 @@
-import 'package:epoissonnerie_front/models/Customer.dart';
-import 'package:epoissonnerie_front/models/SellerFish.dart';
 import 'package:epoissonnerie_front/views/VisitorBottomNavigationBar.dart';
 import 'package:epoissonnerie_front/widgets/MyTitle.dart';
 import 'package:epoissonnerie_front/Views/LoginPage.dart';
@@ -70,23 +68,14 @@ class _HomePageState extends State<HomePage> {
                             textStyle: const TextStyle(fontWeight: FontWeight.w800),
                             child: const Text("VENDEUR"),
                             onPressed: () {
-                              SellerFish seller = SellerFish();
-                              dynamic role = seller.role;
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const SignPage()),
-                              );
+                              Navigator.push(context,MaterialPageRoute(builder: (context) => const SignPage()),);
                             },
                           ),
                           CupertinoDialogAction(
                             textStyle: const TextStyle(fontWeight: FontWeight.w800),
                             child: const Text("CLIENT"),
                             onPressed: () {
-                              CustomerFish customer = CustomerFish();
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const SignPage()),
-                              );
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => const SignPage()),);
                             },
                           )
                         ]

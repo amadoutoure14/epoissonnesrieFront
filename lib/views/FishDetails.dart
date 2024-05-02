@@ -33,7 +33,6 @@ class FishDetails extends StatefulWidget {
     final double currentheight = MediaQuery.of(context).size.height;
     final double currentWidth = MediaQuery.of(context).size.width;
     final double height = currentheight > 1000 ? currentheight * 0.09 : currentheight * 0.10;
-    final double expanded = currentWidth > 600 ? currentWidth * 0.2 : currentheight * 0.25;
     String image = widget.poisson.image;
     int quantite = widget.poisson.quantite;
     String producteur = widget.poisson.producteur;
@@ -71,7 +70,7 @@ class FishDetails extends StatefulWidget {
                                 fontFamily: 'Monda-Bold', fontSize: 23),
                           ),
                           Text(
-                            " ${widget.poisson.prix}",
+                            "${widget.poisson.prix}",
                             style: const TextStyle(
                                 fontFamily: 'Monda-Bold', fontSize: 23),
                           ),

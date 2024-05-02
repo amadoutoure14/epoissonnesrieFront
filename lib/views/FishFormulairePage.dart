@@ -1,35 +1,31 @@
-import 'package:epoissonnerie_front/Views/LoginPage.dart';
-import 'package:epoissonnerie_front/models/Customer.dart';
-import 'package:epoissonnerie_front/models/SellerFish.dart';
+import 'package:epoissonnerie_front/Views/SellerFishes.dart';
 import 'package:epoissonnerie_front/widgets/MySliverAppBar.dart';
 import 'package:flutter/material.dart';
-class SignPage extends StatefulWidget {
-  const SignPage({super.key});
+class FishFormulairePage extends StatefulWidget {
+  const FishFormulairePage({super.key});
+
   @override
-  State<SignPage> createState() => _SignPageState();
+  State<FishFormulairePage> createState() => _FishFormulairePageState();
 }
 
-class _SignPageState extends State<SignPage> {
+class _FishFormulairePageState extends State<FishFormulairePage> {
   final nomcontroller = TextEditingController();
   final emailcontroller = TextEditingController();
   final telcontroller = TextEditingController();
   final mdpcontroller = TextEditingController();
   final adressecontroller = TextEditingController();
-  bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
     final double currentWidth = MediaQuery.of(context).size.width;
     final double inputWidth = currentWidth > 600 ? 580 : 350;
     return  MaterialApp(
-      themeMode: ThemeMode.system,
-      theme: ThemeData(
-          fontFamily: 'Monda-Bold'
-      ),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Monda-Bold'),
+      themeMode: ThemeMode.system,
       home: Scaffold(
         body: CustomScrollView(
-          slivers:  <Widget> [
-            const MySliverAppBar(titre:'inscription'),
+          slivers: [
+            const MySliverAppBar(titre:'nouveau produit'),
             SliverList(
                 delegate: SliverChildListDelegate(
                   [
@@ -45,11 +41,12 @@ class _SignPageState extends State<SignPage> {
                               child: TextFormField(
                                 textAlign: TextAlign.center,
                                 obscureText: false,
+                                keyboardType: TextInputType.text,
                                 controller: nomcontroller,
                                 decoration: InputDecoration(
                                   contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-                                  hintText: "NOM COMPLET",
+                                  hintText: "TYPE POISSON",
                                 ),
                               ),
                             ),
@@ -60,69 +57,12 @@ class _SignPageState extends State<SignPage> {
                                 child: TextFormField(
                                   textAlign: TextAlign.center,
                                   obscureText: false,
+                                  keyboardType: TextInputType.number,
                                   controller: adressecontroller,
                                   decoration: InputDecoration(
                                     contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-                                    hintText: "ADRESSE",
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 13.0),
-                              child: SizedBox(
-                                width: inputWidth,
-                                child: TextFormField(
-                                  textAlign: TextAlign.center,
-                                  obscureText: false,
-                                  controller: emailcontroller,
-                                  decoration: InputDecoration(
-                                    contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-                                    hintText: "EMAIL",
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 13.0),
-                              child: SizedBox(
-                                width: inputWidth,
-                                child: TextFormField(
-                                  maxLength: 8,
-                                  keyboardType: TextInputType.phone,
-                                  textAlign: TextAlign.center,
-                                  obscureText: false,
-                                  controller: telcontroller,
-                                  decoration: InputDecoration(
-                                    contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-                                    hintText: "TELEPHONE",
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5.0),
-                              child: SizedBox(
-                                width: inputWidth,
-                                child: TextFormField(
-                                  obscureText: _isObscure,
-                                  keyboardType: TextInputType.visiblePassword,
-                                  textAlign: TextAlign.center,
-                                  controller: mdpcontroller,
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-                                    hintText: "MOT DE PASSE",
-                                    suffixIcon: IconButton(
-                                      icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
-                                      onPressed: () {
-                                        setState(() {
-                                          _isObscure = !_isObscure;
-                                        });
-                                      },
-                                    ),
+                                    hintText: "QUANTITé".toUpperCase(),
                                   ),
                                 ),
                               ),
@@ -152,10 +92,10 @@ class _SignPageState extends State<SignPage> {
                                         )
                                     ),
                                     onPressed: () {
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => const SellerFishes()));
                                     },
                                     child: const Center(
-                                      child: Text("S'INSCRIRE"),
+                                      child: Text("AJOUTER"),
                                     ),
                                   ),
                                   Padding(
