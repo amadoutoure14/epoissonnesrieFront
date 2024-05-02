@@ -1,7 +1,7 @@
 import 'package:epoissonnerie_front/Models/Customer.dart';
+import 'package:epoissonnerie_front/widgets/MySliverAppBar.dart';
 import 'package:flutter/material.dart';
 import '../Models/Poisson.dart';
-import '../widgets/MyAppBar.dart';
 import 'FishDetails.dart';
 class CustomerProfilPage extends StatefulWidget {
   const CustomerProfilPage({super.key});
@@ -11,7 +11,7 @@ class CustomerProfilPage extends StatefulWidget {
 class _CustomerProfilPageState extends State<CustomerProfilPage> {
   @override
   Widget build(BuildContext context) {
-    Customer customer = Customer(
+    CustomerFish customer = CustomerFish(
         nomComplet: "Amadou Touré",
         tel: 77227349,
         photo: "assets/pictures/Customer.png",
@@ -59,11 +59,7 @@ class _CustomerProfilPageState extends State<CustomerProfilPage> {
       themeMode: ThemeMode.system,
       home: CustomScrollView(
         slivers:<Widget>[
-          const SliverAppBar(
-            expandedHeight: 220,
-            flexibleSpace: FlexibleSpaceBar(background: MyAppBar(title: "mes produits")),
-            scrolledUnderElevation: 9,
-          ),
+          const MySliverAppBar(titre:'mes poissons'),
           SliverList(
             delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {

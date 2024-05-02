@@ -1,7 +1,7 @@
 import 'package:epoissonnerie_front/Views/SellerFishes.dart';
+import 'package:epoissonnerie_front/models/SellerFish.dart';
 import 'package:epoissonnerie_front/views/SellerCommandePage.dart';
 import 'package:flutter/material.dart';
-
 import 'MarketPage.dart';
 import 'ProfilPage.dart';
 class SellerBottomNavigationBar extends StatefulWidget {
@@ -13,8 +13,10 @@ class SellerBottomNavigationBar extends StatefulWidget {
 
 class _SellerBottomNavigationBarState extends State<SellerBottomNavigationBar> {
   int _currentIndex = 0;
+  SellerFish seller = SellerFish(nomComplet: "Abou Diallo",tel: 57943994,photo: "assets/pictures/vendeur.png",adresse: "Ségou, Pélengana Nord, Rue 32, Porte 45");
   @override
   Widget build(BuildContext context) {
+    String? photo = seller.photo;
     return Scaffold(
       body: _getBody(_currentIndex),
       bottomNavigationBar: BottomNavigationBar(
@@ -49,11 +51,11 @@ class _SellerBottomNavigationBarState extends State<SellerBottomNavigationBar> {
             icon: _currentIndex == 3 ? Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.orange, width: 2.0),
+                border: Border.all(color: Colors.orange, width: 3.0),
               ),
-              child: const Icon(Icons.account_circle),
+              child: Image.asset(photo!,height: 30,width: 30),
             )
-                : const Icon(Icons.account_circle_outlined),
+                : Image.asset(photo!,height: 30,width: 30),
             label: 'PROFIL'.toUpperCase(),
           ),
           BottomNavigationBarItem(
@@ -68,7 +70,7 @@ class _SellerBottomNavigationBarState extends State<SellerBottomNavigationBar> {
     );
   }
 
-  Widget _getBody(int index) {
+  Widget? _getBody(int index) {
     switch (index) {
       case 0:
         return const MarketPage();
@@ -77,7 +79,7 @@ class _SellerBottomNavigationBarState extends State<SellerBottomNavigationBar> {
       case 2:
         return const SellerCommandePage();
       case 3:
-        return const ProfilPage();
+        return ProfilPage(seller: seller);
       default:
         return const MarketPage();
     }
@@ -87,47 +89,160 @@ class _SellerBottomNavigationBarState extends State<SellerBottomNavigationBar> {
     showDialog<void>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
+        elevation: 30,
+        title: Center(
+          child: Text(
+              "Menu".toUpperCase(),
+            style: const TextStyle(
+              fontWeight: FontWeight.w800,
+              fontFamily: 'Monda-Bold'
+            ),
+          ),
+        ),
         content: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Card(
-                    elevation: 12,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset("assets/pictures/logo.png", width: 20, height: 20),
-                          const SizedBox(height: 8),
-                          Text("BOUTIQUE".toUpperCase(), textAlign: TextAlign.center)
-                        ],
-                      ),
+                  ElevatedButton(
+                    style: const ButtonStyle(
+                        elevation:MaterialStatePropertyAll(50),
+                        shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                        backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85)),
                     ),
+                      onPressed: () {
+                        null;
+                        },
+                      child: Column(
+                        children: [
+                          Image.asset("assets/pictures/Fish market.png",width: 40,height: 40),
+                          Text("data"),
+                        ],
+                      )
                   ),
-                  Card(
-                    elevation: 12,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset("assets/pictures/logo.png", width: 20, height: 20),
-                          const SizedBox(height: 8),
-                          Text("BOUTIQUE".toUpperCase(), textAlign: TextAlign.center)
-                        ],
-                      ),
+                  ElevatedButton(
+                    style: const ButtonStyle(
+                        elevation:MaterialStatePropertyAll(50),
+                        shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                        backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
                     ),
+                      onPressed: () {
+                        null;
+                        },
+                      child: Column(
+                        children: [
+                          Image.asset("assets/pictures/Fish.png",width: 40,height: 40,),
+                          Text("data"),
+                        ],
+                      )
                   ),
                 ],
-              )
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      style: const ButtonStyle(
+                          elevation:MaterialStatePropertyAll(50),
+                          shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                          backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
+                      ),
+                        onPressed: () {
+                          null;
+                          },
+                        child: Column(
+                          children: [
+                            Image.asset("assets/pictures/Shopping cart.png",width: 40,height: 40,),
+                            Text("data"),
+                          ],
+                        )
+                    ),
+                    ElevatedButton(
+                      style: const ButtonStyle(
+                          elevation:MaterialStatePropertyAll(50),
+                          shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                          backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
+                      ),
+                        onPressed: () {
+                          null;
+                          },
+                        child: Column(
+                          children: [
+                            Image.asset("assets/pictures/User.png",height: 40,width: 40,),
+                            Text("data"),
+
+                          ],
+                        )
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      style: const ButtonStyle(
+                          elevation:MaterialStatePropertyAll(50),
+                          shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                          backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
+                      ),
+                        onPressed: () {
+                          null;
+                          },
+                        child: Column(
+                          children: [
+                            Image.asset("assets/pictures/Discussion.png",width: 40,height: 40),
+                            Text("data"),
+                          ],
+                        )
+                    ),
+                    ElevatedButton(
+                      style: const ButtonStyle(
+                          elevation:MaterialStatePropertyAll(50),
+                          shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                          backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
+                      ),
+                        onPressed: () {
+                          null;
+                          },
+                        child: Column(
+                          children: [
+                            Image.asset("assets/pictures/Bubble chat.png",height: 40,width: 40,),
+                            Text("data"),
+
+                          ],
+                        )
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: ElevatedButton(
+                  style: const ButtonStyle(
+                      elevation:MaterialStatePropertyAll(50),
+                      shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                      backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
+                  ),
+                    onPressed: () {
+                      null;
+                      },
+                    child: Column(
+                      children: [
+                        Image.asset("assets/pictures/Newspaper Folded.png",height: 40,width:40,),
+                        Text("data"),
+                      ],
+                    )
+                ),
+              ),
             ],
           ),
         ),

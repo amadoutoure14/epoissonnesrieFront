@@ -1,6 +1,6 @@
 import 'package:epoissonnerie_front/Models/Poisson.dart';
+import 'package:epoissonnerie_front/widgets/MySliverAppBar.dart';
 import 'package:flutter/material.dart';
-import '../widgets/MyAppBar.dart';
 import 'FishDetails.dart';
 
 class MarketPage extends StatefulWidget {
@@ -38,15 +38,7 @@ class _MarketPageState extends State<MarketPage> {
       home: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
-            const SliverAppBar(
-              scrolledUnderElevation: 9,
-              floating: true,
-              backgroundColor: Color(0xFF77B5FE),
-              expandedHeight: 220.0,
-              flexibleSpace: FlexibleSpaceBar(
-                background: MyAppBar(title: 'BOUTIQUE'),
-              ),
-            ),
+            const MySliverAppBar(titre:'boutique'),
             SliverList(
               delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {

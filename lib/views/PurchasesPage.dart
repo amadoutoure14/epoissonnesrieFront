@@ -1,7 +1,5 @@
-import 'package:epoissonnerie_front/models/Purchase.dart';
+import 'package:epoissonnerie_front/widgets/MySliverAppBar.dart';
 import 'package:flutter/material.dart';
-
-import '../widgets/MyAppBar.dart';
 import 'PurchasesDetailsPage.dart';
 class PurchasesPage extends StatefulWidget {
   const PurchasesPage({super.key});
@@ -51,15 +49,7 @@ class _PurchasesPageState extends State<PurchasesPage> {
       home: Scaffold(
         body: CustomScrollView(
           slivers:<Widget> [
-            const SliverAppBar(
-              scrolledUnderElevation: 9,
-              floating: true,
-              backgroundColor: Color(0xFF77B5FE),
-              expandedHeight: 220.0,
-              flexibleSpace: FlexibleSpaceBar(
-                background: MyAppBar(title: 'ACHATS'),
-              ),
-            ),
+            const MySliverAppBar(titre:'Achats'),
             SliverList(
               delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {

@@ -1,8 +1,8 @@
-import 'package:epoissonnerie_front/views/SellerBottomNavigationBar.dart';
+import 'package:epoissonnerie_front/models/Customer.dart';
+import 'package:epoissonnerie_front/models/SellerFish.dart';
+import 'package:epoissonnerie_front/views/VisitorBottomNavigationBar.dart';
 import 'package:epoissonnerie_front/widgets/MyTitle.dart';
-import 'package:epoissonnerie_front/Views/CustomerBottomNavigationBar.dart';
 import 'package:epoissonnerie_front/Views/LoginPage.dart';
-import 'package:epoissonnerie_front/Views/MarketPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -48,9 +48,8 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(
                         fontSize: 23)
                 ),
-                const SizedBox(height: 100),
                 Padding(
-                  padding: const EdgeInsets.only(top: 40.0),
+                  padding: const EdgeInsets.only(top: 70.0),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xffffbb85),
@@ -71,6 +70,8 @@ class _HomePageState extends State<HomePage> {
                             textStyle: const TextStyle(fontWeight: FontWeight.w800),
                             child: const Text("VENDEUR"),
                             onPressed: () {
+                              SellerFish seller = SellerFish();
+                              dynamic role = seller.role;
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) => const SignPage()),
@@ -81,6 +82,7 @@ class _HomePageState extends State<HomePage> {
                             textStyle: const TextStyle(fontWeight: FontWeight.w800),
                             child: const Text("CLIENT"),
                             onPressed: () {
+                              CustomerFish customer = CustomerFish();
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) => const SignPage()),
@@ -91,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                       )
                     ),
                     child: const Text(
-                      "S\'INSCRIRE",
+                      "S'INSCRIRE",
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w600
@@ -141,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const SellerBottomNavigationBar()),
+                        MaterialPageRoute(builder: (context) => const VisitorBottomNavigationBar()),
                       );
                     },
                     child: const Text(

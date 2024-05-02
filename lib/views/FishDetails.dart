@@ -1,11 +1,9 @@
 import 'dart:ui';
-
 import 'package:epoissonnerie_front/Models/Poisson.dart';
-import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
+import 'package:epoissonnerie_front/widgets/MySliverAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'CustomerBottomNavigationBar.dart';
 
 class FishDetails extends StatefulWidget {
   final Poisson poisson;
@@ -46,14 +44,7 @@ class FishDetails extends StatefulWidget {
       home: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
-            SliverAppBar(
-              expandedHeight: expanded,
-              scrolledUnderElevation: 9,
-              floating: true,
-              flexibleSpace: const FlexibleSpaceBar(
-                background: MyAppBar(title: "Détails"),
-              ),
-            ),
+            const MySliverAppBar(titre:'details'),
             SliverList(
                 delegate: SliverChildListDelegate([
               Card.outlined(

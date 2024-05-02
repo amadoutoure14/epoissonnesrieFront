@@ -1,23 +1,23 @@
-import 'package:epoissonnerie_front/Models/rolesType.dart';
+import 'package:epoissonnerie_front/Models/Customer.dart';
 import 'package:flutter/material.dart';
 import 'MarketPage.dart';
 import 'PurchasesPage.dart';
 import 'ProfilPage.dart';
-import 'package:epoissonnerie_front/Models/Customer.dart';
 
-class CustomerBottomNavBar extends StatefulWidget {
-  const CustomerBottomNavBar({super.key});
+class CustomerBottomNavigationBar extends StatefulWidget {
+  const CustomerBottomNavigationBar({super.key});
 
   @override
-  State<CustomerBottomNavBar> createState() => _CustomerBottomNavBarState();
+  State<CustomerBottomNavigationBar> createState() => _CustomerBottomNavigationBarState();
 }
 
-class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
+class _CustomerBottomNavigationBarState extends State<CustomerBottomNavigationBar> {
+  CustomerFish customer = CustomerFish(nomComplet: "Sekou Traoré",adresse: "Badialan 2, Porte 22, Rue 232",photo: "assets/pictures/Customer.png",tel: 89763738);
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-
-    return Scaffold(
+    final photo = customer.photo;
+   return Scaffold(
       body: _getBody(_currentIndex),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color(0xFF77B5FE),
@@ -44,11 +44,11 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
             icon: _currentIndex == 2 ? Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.orange, width: 2.0),
+                border: Border.all(color: const Color(0xFFFFBB85), width: 3.0),
               ),
-              child: Icon(Icons.account_circle),
+              child: Image.asset(photo!,width: 30,height: 30),
             )
-                :  Icon(Icons.account_circle_outlined),
+                :  Image.asset(photo!,width: 30,height: 30),
             label: 'PROFIL'.toUpperCase(),
           ),
           BottomNavigationBarItem(
@@ -70,7 +70,7 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
       case 1:
         return const PurchasesPage();
       case 2:
-        return ProfilPage();
+        return ProfilPage(customer: customer);
         default:
         return const MarketPage();
     }
@@ -107,14 +107,6 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
             )
           ],
         ),
-        actions: <TextButton>[
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: const Text('Close'),
-          )
-        ],
       ),
     );
   }
@@ -125,6 +117,11 @@ class _CustomerBottomNavBarState extends State<CustomerBottomNavBar> {
     }
     setState(() {
       _currentIndex = index;
+      if(index == 3){
+        setState(() {
+          index = index;
+        });
+      }
     });
   }
 }

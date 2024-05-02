@@ -1,9 +1,12 @@
 import 'package:epoissonnerie_front/Views/LoginPage.dart';
-import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
+import 'package:epoissonnerie_front/models/Customer.dart';
+import 'package:epoissonnerie_front/models/SellerFish.dart';
+import 'package:epoissonnerie_front/widgets/MySliverAppBar.dart';
 import 'package:flutter/material.dart';
 class SignPage extends StatefulWidget {
-
-  const SignPage({super.key});
+  final SellerFish? seller;
+  final CustomerFish? customer;
+  const SignPage({super.key, this.seller, this.customer});
 
   @override
   State<SignPage> createState() => _SignPageState();
@@ -29,20 +32,13 @@ class _SignPageState extends State<SignPage> {
       home: Scaffold(
         body: CustomScrollView(
           slivers:  <Widget> [
-            const SliverAppBar(
-              floating: true,
-              elevation: 9,
-              expandedHeight: 220.0,
-              flexibleSpace: FlexibleSpaceBar(
-                background: MyAppBar(title: "INSCRIPTION"),
-              ),
-            ),
+            const MySliverAppBar(titre:'inscription'),
             SliverList(
                 delegate: SliverChildListDelegate(
                   [
                     Form(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 18.0),
+                        padding: const EdgeInsets.only(top: 58.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -135,7 +131,7 @@ class _SignPageState extends State<SignPage> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 28.0),
+                              padding: const EdgeInsets.only(top: 60.0),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -162,7 +158,7 @@ class _SignPageState extends State<SignPage> {
                                       Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
                                     },
                                     child: const Center(
-                                      child: Text("S\'INSCRIRE"),
+                                      child: Text("S'INSCRIRE"),
                                     ),
                                   ),
                                   Padding(

@@ -1,4 +1,3 @@
-import 'Commande.dart';
 
 class Poisson {
   final String nom;

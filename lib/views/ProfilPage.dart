@@ -1,44 +1,32 @@
 import 'package:epoissonnerie_front/Models/Customer.dart';
-import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
+import 'package:epoissonnerie_front/models/SellerFish.dart';
+import 'package:epoissonnerie_front/widgets/MySliverAppBar.dart';
 import 'package:flutter/material.dart';
 class ProfilPage extends StatefulWidget {
-
-  const ProfilPage({super.key});
+  final CustomerFish? customer;
+  final SellerFish? seller ;
+  const ProfilPage({super.key, this.customer,this.seller});
 
   @override
   State<ProfilPage> createState() => _ProfilPageState();
 }
 
 class _ProfilPageState extends State<ProfilPage> {
+  final String tel = "assets/pictures/Telephone.png";
+  final String maps = "assets/pictures/Google maps.png";
   bool changed = false;
   bool isEnable = false;
   final telcontroller = TextEditingController();
-
-
-
-  @override
-  void initState() {
-         super.initState();
-         bool isEnable = false;
-         bool changed = false;
-  }
-  @override
-  void dispose() {
-    telcontroller.dispose();
-
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-
     final double currentWidth = MediaQuery.of(context).size.width;
     final double currentHeight = MediaQuery.of(context).size.height;
     final double inputWidth = currentWidth > 600 ? 580 : 350;
     final double textSize = currentWidth > 600 ? 14 : 13;
-    String tel = "assets/pictures/Telephone.png";
-    String maps = "assets/pictures/Google maps.png";
-
+    String? photoCustomer = widget.customer?.photo;
+    String? nomCustomer = widget.customer?.nomComplet;
+    String? photoSeller = widget.seller?.photo;
+    String? nomSeller = widget.seller?.nomComplet;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
@@ -46,12 +34,7 @@ class _ProfilPageState extends State<ProfilPage> {
       home: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
-            const SliverAppBar(
-              toolbarHeight: 220,
-              floating: true,
-              scrolledUnderElevation: 10,
-              flexibleSpace: MyAppBar(title: "profil"),
-            ),
+            const MySliverAppBar(titre:'profil'),
             SliverList(
               delegate: SliverChildListDelegate(
                 [
@@ -63,9 +46,9 @@ class _ProfilPageState extends State<ProfilPage> {
                           decoration: const BoxDecoration(
                               shape: BoxShape.circle
                           ),
-                          child: const Icon(Icons.account_circle),
+                          child: widget.seller != null ? Image.asset(photoSeller!) : Image.asset(photoCustomer!),
                         ),
-                        Text("A".toUpperCase(),style: const TextStyle(fontSize: 30),),
+                        widget == widget.seller ? Text(nomSeller!.toUpperCase(),style: const TextStyle(fontSize: 30),) : Text(nomCustomer!.toUpperCase(),style: const TextStyle(fontSize: 30),),
                         Padding(
                           padding: const EdgeInsets.only(top: 120.0),
                           child: Column(

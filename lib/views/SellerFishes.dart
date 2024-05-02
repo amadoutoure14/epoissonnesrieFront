@@ -1,18 +1,12 @@
-import 'package:epoissonnerie_front/Models/Customer.dart';
 import 'package:epoissonnerie_front/Models/Poisson.dart';
-import 'package:epoissonnerie_front/Models/Seller.dart';
-import 'package:epoissonnerie_front/Models/rolesType.dart';
-import 'package:epoissonnerie_front/widgets/MyAppBar.dart';
+import 'package:epoissonnerie_front/widgets/MySliverAppBar.dart';
 import 'package:flutter/material.dart';
-
 import 'FishDetails.dart';
 class SellerFishes extends StatefulWidget {
   const SellerFishes({super.key});
-
   @override
   State<SellerFishes> createState() => _SellerFishesState();
 }
-
 class _SellerFishesState extends State<SellerFishes> {
   @override
   Widget build(BuildContext context) {
@@ -38,11 +32,7 @@ class _SellerFishesState extends State<SellerFishes> {
       themeMode: ThemeMode.system,
       home: CustomScrollView(
         slivers:<Widget>[
-          const SliverAppBar(
-            expandedHeight: 220,
-            flexibleSpace: FlexibleSpaceBar(background: MyAppBar(title: "mes produits")),
-            scrolledUnderElevation: 9,
-          ),
+          const MySliverAppBar(titre:'Poissons'),
           SliverList(
             delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
