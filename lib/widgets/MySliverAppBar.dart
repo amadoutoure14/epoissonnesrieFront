@@ -7,6 +7,10 @@ class MySliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       floating: true,
+      snap: true,
+      pinned: true,
+      title: Text("E-POISSONNERIE".toUpperCase()),
+      centerTitle: true,
       scrolledUnderElevation: 30,
       backgroundColor: const Color(0xFF77B5FE),
       expandedHeight: 220,
@@ -17,15 +21,8 @@ class MySliverAppBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text(
-                "E-POISSONERIE",
-                style: TextStyle(
-                  fontFamily: 'Monda-Bold',
-                  fontSize: 23,
-                ),
-              ),
               Padding(
-                padding: const EdgeInsets.only(top: 8.0),
+                padding: const EdgeInsets.only(top: 30.0),
                 child: Image.asset(
                   logo,
                   width: 200,
