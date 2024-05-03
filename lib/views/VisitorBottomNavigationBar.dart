@@ -122,12 +122,10 @@ class _VisitorBottomNavigationBarState extends State<VisitorBottomNavigationBar>
         ),
         content: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
                       style: const ButtonStyle(
@@ -140,7 +138,8 @@ class _VisitorBottomNavigationBarState extends State<VisitorBottomNavigationBar>
                       },
                       child: Column(
                         children: [
-                          Image.asset("assets/pictures/Fish market.png",width: 30,height: 30,),
+                          Image.asset("assets/pictures/Fish market.png",width: 40,height: 40),
+                          Text("data"),
                         ],
                       )
                   ),
@@ -155,101 +154,115 @@ class _VisitorBottomNavigationBarState extends State<VisitorBottomNavigationBar>
                       },
                       child: Column(
                         children: [
-                          Image.asset("assets/pictures/Fish.png",width: 30,height: 30,),
+                          Image.asset("assets/pictures/Fish.png",width: 40,height: 40,),
+                          Text("data"),
                         ],
                       )
                   ),
                 ],
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                      style: const ButtonStyle(
-                          elevation:MaterialStatePropertyAll(50),
-                          shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
-                          backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
-                      ),
-                      onPressed: () {
-                        null;
-                      },
-                      child: Column(
-                        children: [
-                          Image.asset("assets/pictures/Shopping cart.png",width: 27,height: 27,),
-                        ],
-                      )
-                  ),
-                  ElevatedButton(
-                      style: const ButtonStyle(
-                          elevation:MaterialStatePropertyAll(50),
-                          shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
-                          backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
-                      ),
-                      onPressed: () {
-                        null;
-                      },
-                      child: Column(
-                        children: [
-                          Image.asset("assets/pictures/User.png",height: 27,width: 27,),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                        style: const ButtonStyle(
+                            elevation:MaterialStatePropertyAll(50),
+                            shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                            backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
+                        ),
+                        onPressed: () {
+                          null;
+                        },
+                        child: Column(
+                          children: [
+                            Image.asset("assets/pictures/Shopping cart.png",width: 40,height: 40,),
+                            Text("data"),
+                          ],
+                        )
+                    ),
+                    ElevatedButton(
+                        style: const ButtonStyle(
+                            elevation:MaterialStatePropertyAll(50),
+                            shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                            backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
+                        ),
+                        onPressed: () {
+                          null;
+                        },
+                        child: Column(
+                          children: [
+                            Image.asset("assets/pictures/User.png",height: 40,width: 40,),
+                            Text("data"),
 
-                        ],
-                      )
-                  ),
-                ],
+                          ],
+                        )
+                    ),
+                  ],
+                ),
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                      style: const ButtonStyle(
-                          elevation:MaterialStatePropertyAll(50),
-                          shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
-                          backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
-                      ),
-                      onPressed: () {
-                        null;
-                      },
-                      child: Column(
-                        children: [
-                          Image.asset("assets/pictures/Discussion.png",width: 28,height: 28),
-                        ],
-                      )
-                  ),
-                  ElevatedButton(
-                      style: const ButtonStyle(
-                          elevation:MaterialStatePropertyAll(50),
-                          shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
-                          backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
-                      ),
-                      onPressed: () {
-                        null;
-                      },
-                      child: Column(
-                        children: [
-                          Image.asset("assets/pictures/Bubble chat.png",height: 28,width: 28,),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                        style: const ButtonStyle(
+                            elevation:MaterialStatePropertyAll(50),
+                            shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                            backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
+                        ),
+                        onPressed: () {
+                          null;
+                        },
+                        child: Column(
+                          children: [
+                            Image.asset("assets/pictures/Discussion.png",width: 40,height: 40),
+                            Text("data"),
+                          ],
+                        )
+                    ),
+                    ElevatedButton(
+                        style: const ButtonStyle(
+                            elevation:MaterialStatePropertyAll(50),
+                            shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                            backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
+                        ),
+                        onPressed: () {
+                          null;
+                        },
+                        child: Column(
+                          children: [
+                            Image.asset("assets/pictures/Bubble chat.png",height: 40,width: 40,),
+                            Text("data"),
 
-                        ],
-                      )
-                  ),
-                ],
+                          ],
+                        )
+                    ),
+                  ],
+                ),
               ),
-              ElevatedButton(
-                  style: const ButtonStyle(
-                      elevation:MaterialStatePropertyAll(50),
-                      shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
-                      backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
-                  ),
-                  onPressed: () {
-                    null;
-                  },
-                  child: Column(
-                    children: [
-                      Image.asset("assets/pictures/Newspaper Folded.png",height: 28,width:28,),
-
-                    ],
-                  )
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: ElevatedButton(
+                    style: const ButtonStyle(
+                        elevation:MaterialStatePropertyAll(50),
+                        shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                        backgroundColor: MaterialStatePropertyAll(Color(0xffffbb85))
+                    ),
+                    onPressed: () {
+                      null;
+                    },
+                    child: Column(
+                      children: [
+                        Image.asset("assets/pictures/Newspaper Folded.png",height: 40,width:40,),
+                        Text("data"),
+                      ],
+                    )
+                ),
               ),
             ],
           ),

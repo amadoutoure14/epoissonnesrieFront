@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
                 delegate: SliverChildListDelegate(
                   [
                     Padding(
-                      padding: const EdgeInsets.only(top: 58.0),
+                      padding: const EdgeInsets.only(top: 100.0),
                       child: Form(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(top: currentHeight * 0.2),
+                                padding: EdgeInsets.only(top: currentHeight * 0.1),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,

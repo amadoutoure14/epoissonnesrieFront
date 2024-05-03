@@ -17,8 +17,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     const logo = "assets/pictures/logo.png";
-    final currentWidth = MediaQuery.of(context).size.width;
-    final double paddingValue = currentWidth < 600 ? 128 : 40;
+    final currentHeight = MediaQuery.of(context).size.height;
+    final double paddingValue = currentHeight < 1100 ? 150 : 40;
+    final double paddingTop = currentHeight < 1100 ? 100 : 50;
 
     return MaterialApp(
       initialRoute: '/',
@@ -47,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 23)
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 70.0),
+                  padding: EdgeInsets.only(top: paddingTop),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xffffbb85),
