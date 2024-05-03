@@ -19,6 +19,24 @@ class _MarketPageState extends State<MarketPage> {
       prix: 1500,
       quantite: 20,
       producteur: "Amadou Traoré",
+    ),Poisson(
+      nom: "Tilapia",
+      image: "assets/pictures/tilapia.jpeg",
+      prix: 1500,
+      quantite: 20,
+      producteur: "Amadou Traoré",
+    ),Poisson(
+      nom: "Tilapia",
+      image: "assets/pictures/tilapia.jpeg",
+      prix: 1500,
+      quantite: 20,
+      producteur: "Amadou Traoré",
+    ),Poisson(
+      nom: "Tilapia",
+      image: "assets/pictures/tilapia.jpeg",
+      prix: 1500,
+      quantite: 20,
+      producteur: "Amadou Traoré",
     ),
     Poisson(
       nom: "Clarias",
