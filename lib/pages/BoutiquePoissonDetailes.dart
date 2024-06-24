@@ -112,7 +112,8 @@ class _BoutiquePoissonDetailesState extends State<BoutiquePoissonDetailes> {
                                         "commande".toUpperCase(),
                                         style: const TextStyle(fontSize: 20),
                                       )),
-                                  content: Column(children: [
+                                  content: Column(
+                                      children: [
                                     Row(
                                       crossAxisAlignment:
                                       CrossAxisAlignment.center,
@@ -156,7 +157,7 @@ class _BoutiquePoissonDetailesState extends State<BoutiquePoissonDetailes> {
                                             controller: _fishNumberController,
                                             placeholder: '1',
                                             maxLength: 4,
-                                            onChanged:  (String value) {
+                                            onChanged:  (String value) async {
                                               setState(() {
                                                 _fishNumber = int.tryParse(value.trim()) ?? 0;
                                                 _totalPrice = _fishNumber * _prixPoisson;
@@ -214,7 +215,6 @@ class _BoutiquePoissonDetailesState extends State<BoutiquePoissonDetailes> {
                                           fontWeight: FontWeight.w800),
                                       onPressed: () {
                                         setState(() {
-
                                         });
                                         Navigator.pop(context);
                                       },

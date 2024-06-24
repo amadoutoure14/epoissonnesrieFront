@@ -1,5 +1,6 @@
 import 'package:epoissonnerie_front/modeles/Vendeur.dart';
 import 'package:epoissonnerie_front/pages/Boutique.dart';
+import 'package:epoissonnerie_front/pages/Discussion.dart';
 import 'package:epoissonnerie_front/pages/VendeurCatalogues.dart';
 import 'package:epoissonnerie_front/pages/VendeurProfil.dart';
 import 'package:flutter/material.dart';
@@ -38,17 +39,22 @@ class _VendeurNavBarState extends State<VendeurNavBar> {
             selectedIndex: currentPageIndex,
             destinations: const <Widget>[
               NavigationDestination(
-                selectedIcon: Icon(Icons.shopping_bag),
+                selectedIcon: Icon(Icons.shopping_bag,color: Colors.white),
                 icon: Icon(Icons.shopping_bag_outlined),
                 label: 'BOUTIQUE',
               ),
               NavigationDestination(
-                selectedIcon: Icon(Icons.collections_bookmark),
+                selectedIcon: Icon(Icons.collections_bookmark,color: Colors.white),
                 icon: Icon(Icons.collections_bookmark_outlined),
                 label: 'CATALOGUE',
               ),
               NavigationDestination(
-                selectedIcon: Icon(Icons.account_circle),
+                selectedIcon: Icon(Icons.chat,color: Colors.white),
+                icon: Icon(Icons.chat_outlined),
+                label: 'DISCUSSION',
+              ),
+              NavigationDestination(
+                selectedIcon: Icon(Icons.account_circle,color: Colors.white),
                 icon: Icon(Icons.account_circle_outlined),
                 label: 'PROFIL',
               ),
@@ -57,6 +63,7 @@ class _VendeurNavBarState extends State<VendeurNavBar> {
           body: <Widget>[
             Boutique(),
             const VendeurCatalogues(),
+            const Discussion(),
             const VendeurProfil()
           ]
           [currentPageIndex],

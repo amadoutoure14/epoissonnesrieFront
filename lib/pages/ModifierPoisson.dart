@@ -1,6 +1,7 @@
 import 'package:epoissonnerie_front/modeles/Poisson.dart';
 import 'package:epoissonnerie_front/pages/VendeurPoissonDetails.dart';
 import 'package:epoissonnerie_front/widgets/MySliverAppBar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Modifierpoisson extends StatefulWidget {
@@ -34,57 +35,54 @@ class _ModifierpoissonState extends State<Modifierpoisson> {
                           child: Column(
                              children: [
                                SizedBox(
-                                 width: 300,
+                                 width: 350,
                                  child: TextFormField(
+                                   textAlign: TextAlign.center,
                                    controller: nom,
-                                   cursorWidth: 12,
-                                   keyboardAppearance: Brightness.dark,
-                                   decoration: InputDecoration(
-                                     labelText: "NOM",
-                                     contentPadding: const EdgeInsets.all(3),
-                                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(12),borderSide: BorderSide(color: Colors.pinkAccent,width: 20)),
-                                   ),
                                    keyboardType: TextInputType.name,
+                                   decoration: InputDecoration(
+                                     contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+                                     hintText: "NOM",
+                                   ),
                                  ),
                                ),
                                Padding(
-                                 padding: const EdgeInsets.only(top: 18.0),
+                                 padding: const EdgeInsets.only(top: 13.0),
                                  child: SizedBox(
-                                   width: 300,
+                                   width: 350,
                                    child: TextFormField(
+                                     textAlign: TextAlign.center,
+                                     keyboardType: TextInputType.number,
                                      controller: prix,
-                                     cursorWidth: 12,
-                                     keyboardAppearance: Brightness.dark,
                                      decoration: InputDecoration(
-                                       labelText: "PRIX",
-                                       contentPadding: const EdgeInsets.all(3),
-                                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(12),borderSide: BorderSide(color: Colors.pinkAccent,width: 20)),
+                                       contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+                                       hintText: "PRIX",
                                      ),
-                                     keyboardType: TextInputType.number,
                                    ),
                                  ),
                                ),
                                Padding(
-                                 padding: const EdgeInsets.only(top: 18.0),
+                                 padding: const EdgeInsets.only(top: 13.0),
                                  child: SizedBox(
-                                   width: 300,
+                                   width: 350,
                                    child: TextFormField(
-                                     controller: quantite,
-                                     cursorWidth: 12,
-                                     keyboardAppearance: Brightness.dark,
-                                     decoration: InputDecoration(
-                                       labelText: "NOM",
-                                       contentPadding: const EdgeInsets.all(3),
-                                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(12),borderSide: BorderSide(color: Colors.pinkAccent,width: 20)),
-                                     ),
+                                     textAlign: TextAlign.center,
                                      keyboardType: TextInputType.number,
+                                     controller: quantite,
+                                     decoration: InputDecoration(
+                                       contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+                                       hintText: "QUANTITE",
+                                     ),
                                    ),
                                  ),
                                ),
                                Padding(
-                                 padding: const EdgeInsets.only(top: 22 ),
+                                 padding: const EdgeInsets.only(top: 62 ),
                                  child: Row(
-                                   mainAxisAlignment: MainAxisAlignment.center,
+                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                    crossAxisAlignment: CrossAxisAlignment.center,
                                    children: [
                                      ElevatedButton(
@@ -106,36 +104,35 @@ class _ModifierpoissonState extends State<Modifierpoisson> {
                                              )
                                          ),
                                          onPressed: () {
-                                           showDialog(context: context, builder: (context) {
-                                             return  AlertDialog(
-                                               elevation: 23,
-                                               title: const Text("CONFIRMATION"),
-                                               content: const Text("Confirmez-vous la modification ?"),
-                                               backgroundColor: Colors.transparent,
-                                               alignment: Alignment.center,
-
-                                               actions: [
-                                                 ElevatedButton(
-                                                     onPressed: () =>  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  VendeurPoissonDetails(poisson: widget.poisson))),
-                                                   style: const ButtonStyle(
-                                                     elevation: WidgetStatePropertyAll(23),
-                                                     backgroundColor: WidgetStatePropertyAll(Color(
-                                                         0xFF77B5FE))
-                                                   ),
-                                                     child: const Text("CONFIRMER"),
-                                                 ),
-                                                 ElevatedButton(
-                                                     onPressed: () =>  Navigator.pop(context),
-                                                     style: const ButtonStyle(
-                                                         elevation: WidgetStatePropertyAll(23),
-                                                         backgroundColor: WidgetStatePropertyAll(Color(
-                                                             0xFF751414))
-                                                     ),
-                                                     child: const Text("Annuler")
-                                                 ),
-                                               ],
-                                             );
-                                           });
+                                          showDialog(context: context, builder: (context) {
+                                            String avertissement = "assets/pictures/avertissement.png";
+                                            return AlertDialog(
+                                              title: const Center(child: Text("CONFIRMATION",style: TextStyle(fontFamily: 'Open-Sans-Bold'),)),
+                                              content: Column(
+                                                children: [
+                                                  Center(child: Text("confirmez-vous la modification ?".toUpperCase(),style: const TextStyle(fontFamily: 'Open-Sans-Regular'))),
+                                                  Center(child: Image.asset(avertissement))
+                                                ],
+                                              ),
+                                              actions:[
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>VendeurPoissonDetails(poisson: widget.poisson)));
+                                                  },
+                                                  child: const Text('OUI',style: TextStyle(fontFamily: 'Open-Sans-Bold')),
+                                                ),
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: const Text('NON',style: TextStyle(fontFamily: 'Open-Sans-Bold')),
+                                                ),
+                                              ],
+                                              actionsAlignment: MainAxisAlignment.spaceEvenly,
+                                              actionsOverflowAlignment: OverflowBarAlignment.center,
+                                            );
+                                          });
                                          },
                                          child: const Center(
                                            child: Text(

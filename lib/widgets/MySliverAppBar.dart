@@ -18,7 +18,7 @@ class _MySliverAppBarState extends State<MySliverAppBar> {
       centerTitle: true,
       scrolledUnderElevation: 30,
       backgroundColor: const Color(0xFF77B5FE),
-      expandedHeight: 280,
+      expandedHeight: 260,
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
             widget.titre.toUpperCase(),

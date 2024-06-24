@@ -1,5 +1,6 @@
 import 'package:epoissonnerie_front/modeles/Poisson.dart';
 import 'package:epoissonnerie_front/pages/ModifierPoisson.dart';
+import 'package:epoissonnerie_front/pages/VendeurNavBar.dart';
 import 'package:epoissonnerie_front/pages/VendeurPoissons.dart';
 import 'package:epoissonnerie_front/widgets/MySliverAppBar.dart';
 import 'package:flutter/material.dart';
@@ -73,50 +74,47 @@ class _VendeurPoissonDetailsState extends State<VendeurPoissonDetails> {
                               Navigator.push(context,MaterialPageRoute(builder: (context) => Modifierpoisson(poisson: widget.poisson),));
                               },
                             style: const ButtonStyle(
-                                padding: MaterialStatePropertyAll(EdgeInsets.only(
+                                padding: WidgetStatePropertyAll(EdgeInsets.only(
                                     top: 16, bottom: 16, right: 30, left: 30)),
-                                backgroundColor: MaterialStatePropertyAll(Color(0xFF77B5FE)), 
-                                elevation: MaterialStatePropertyAll(9), 
-                                textStyle: MaterialStatePropertyAll(TextStyle(
+                                backgroundColor: WidgetStatePropertyAll(Color(0xFF77B5FE)),
+                                elevation: WidgetStatePropertyAll(9),
+                                textStyle: WidgetStatePropertyAll(TextStyle(
                                     fontFamily: 'Open-Sans-Regular', fontSize: 16)),
                                 foregroundColor:
-                                MaterialStatePropertyAll(Colors.white),
-                                shape: MaterialStatePropertyAll(
+                                WidgetStatePropertyAll(Colors.white),
+                                shape: WidgetStatePropertyAll(
                                     RoundedRectangleBorder(
                                         borderRadius:
                                         BorderRadius.all(Radius.circular(12))
                                     )
                                 )
                             ),
-                            child: const Text("MODIFIER"),
+                            child: const Text("MODIFIER",style: TextStyle(fontFamily: 'Open-Sans-Bold')),
                           ),
                           ElevatedButton(
                             onPressed: () {
                               Navigator.push(context, MaterialPageRoute(builder: (context) => const VendeurPoissons(),));
                               },
-                style: const ButtonStyle(
-                padding: MaterialStatePropertyAll(EdgeInsets.only(
-                top: 16, bottom: 16, right: 30, left: 30)),
-                backgroundColor: MaterialStatePropertyAll(Colors.red),
-                elevation: MaterialStatePropertyAll(9),
-                textStyle: MaterialStatePropertyAll(TextStyle(
-                fontFamily: 'Open-Sans-Regular', fontSize: 16)),
-                foregroundColor:
-                MaterialStatePropertyAll(Colors.white),
-                shape: MaterialStatePropertyAll(
-                RoundedRectangleBorder(
-                borderRadius:
-                BorderRadius.all(Radius.circular(12))))),
-                child: const Text("RETOUR"),
-                ),
-                ],
-                ),
-                )
-
-                ],
+                            style: const ButtonStyle(
+                                padding: WidgetStatePropertyAll(EdgeInsets.only(
+                                    top: 16, bottom: 16, right: 30, left: 30)),
+                                backgroundColor: WidgetStatePropertyAll(Colors.red),
+                                elevation: WidgetStatePropertyAll(9),
+                                textStyle: WidgetStatePropertyAll(TextStyle(
+                                    fontFamily: 'Open-Sans-Regular', fontSize: 16)),
+                                foregroundColor: WidgetStatePropertyAll(Colors.white), shape: WidgetStatePropertyAll(
+                                RoundedRectangleBorder(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(12))))),
+                            child: const Text("RETOUR",style: TextStyle(fontFamily: 'Open-Sans-Bold')),
+                          ),
+                        ],
+                      ),
+                    )
+                  ]
                 );
-              }
-          )
+                }
+                )
           )
         ],
       ),
