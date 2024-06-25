@@ -1,6 +1,5 @@
 import 'package:epoissonnerie_front/modeles/Poisson.dart';
 import 'package:epoissonnerie_front/pages/ModifierPoisson.dart';
-import 'package:epoissonnerie_front/pages/VendeurNavBar.dart';
 import 'package:epoissonnerie_front/pages/VendeurPoissons.dart';
 import 'package:epoissonnerie_front/widgets/MySliverAppBar.dart';
 import 'package:flutter/material.dart';

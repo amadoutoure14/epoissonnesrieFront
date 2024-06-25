@@ -1,8 +1,9 @@
 import 'package:epoissonnerie_front/modeles/Poisson.dart';
-import 'package:epoissonnerie_front/pages/Discussion.dart';
+import 'package:epoissonnerie_front/pages/VendeurDiscussion.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../modeles/Discussion.dart';
 import '../widgets/MySliverAppBar.dart';
 
 class BoutiquePoissonDetailes extends StatefulWidget {
@@ -14,6 +15,7 @@ class BoutiquePoissonDetailes extends StatefulWidget {
 }
 
 class _BoutiquePoissonDetailesState extends State<BoutiquePoissonDetailes> {
+
 
   final TextEditingController _fishNumberController = TextEditingController();
   late int _fishNumber;
@@ -29,6 +31,13 @@ class _BoutiquePoissonDetailesState extends State<BoutiquePoissonDetailes> {
   }
   @override
   Widget build(BuildContext context) {
+    Discussion discussion = Discussion(
+      expediteur: 'Maki',
+      contenu: 'je veux de tilapia hors culture',
+      photo: 'assets/pictures/client.png',
+      id: 1,
+      date: "12:30",
+    );
     final double currentheight = MediaQuery.of(context).size.height;
     final double height = currentheight > 1000 ? currentheight * 0.09 : currentheight * 0.10;
     String image = widget.poisson.image;
@@ -301,7 +310,7 @@ class _BoutiquePoissonDetailesState extends State<BoutiquePoissonDetailes> {
           elevation: 18,
           child: const Icon(Icons.chat,color: Color(0xFFFFFFFF),),
           onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const Discussion(),));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => VendeurDiscussion(discussion: discussion),));
         }
         ),
       ),

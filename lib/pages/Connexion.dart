@@ -1,7 +1,9 @@
 import 'package:epoissonnerie_front/pages/Accueil.dart';
+import 'package:epoissonnerie_front/pages/ClientNavBar.dart';
 import 'package:epoissonnerie_front/pages/VendeurNavBar.dart';
 import 'package:epoissonnerie_front/widgets/MySliverAppBar.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'Inscription.dart';
 
@@ -12,8 +14,8 @@ class Connexion extends StatefulWidget {
 }
 class _ConnexionState extends State<Connexion> {
   bool _isObscure = true;
-  final telcontroller = TextEditingController();
-  final mdpcontroller = TextEditingController();
+  final tel = TextEditingController();
+  final mdp = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,7 @@ class _ConnexionState extends State<Connexion> {
                                     keyboardType: TextInputType.phone,
                                     textAlign: TextAlign.center,
                                     obscureText: false,
-                                    controller: telcontroller,
+                                    controller: tel,
                                     decoration: InputDecoration(
                                       contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
@@ -62,7 +64,7 @@ class _ConnexionState extends State<Connexion> {
                                       obscureText: _isObscure,
                                       keyboardType: TextInputType.visiblePassword,
                                       textAlign: TextAlign.center,
-                                      controller: mdpcontroller,
+                                      controller: mdp,
                                       decoration: InputDecoration(
                                           border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
                                           hintText: "MOT DE PASSE",
@@ -104,7 +106,18 @@ class _ConnexionState extends State<Connexion> {
                                               )
                                           ),
                                           onPressed: () {
-                                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const VendeurNavBar(),));
+                                            int numero = int.parse(tel.text);
+                                            if(numero == 1234){
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) => const VendeurNavBar()));
+                                            }
+                                            else if(numero == 2345){
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) => const ClientNavBar()));
+                                            }
+                                            else{
+                                              if (kDebugMode) {
+                                                print("numéro $numero est incorrect !");
+                                              }
+                                            }
                                           },
                                           child: const Center(
                                             child: Text(

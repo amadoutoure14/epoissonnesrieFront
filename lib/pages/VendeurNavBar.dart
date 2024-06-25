@@ -1,7 +1,8 @@
 import 'package:epoissonnerie_front/modeles/Vendeur.dart';
 import 'package:epoissonnerie_front/pages/Boutique.dart';
-import 'package:epoissonnerie_front/pages/Discussion.dart';
+import 'package:epoissonnerie_front/pages/VendeurDiscussion.dart';
 import 'package:epoissonnerie_front/pages/VendeurCatalogues.dart';
+import 'package:epoissonnerie_front/pages/VendeurDiscussionListe.dart';
 import 'package:epoissonnerie_front/pages/VendeurProfil.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,9 @@ class _VendeurNavBarState extends State<VendeurNavBar> {
       nom: "Abou Diallo",
       tel: 57943994,
       adresse: "Ségou, Pélengana Nord, Rue 32, Porte 45",
-      mdp: 'za');
+      mdp: 'kabako223',
+      photo: 'assets/pictures/vendeur.png'
+  );
   int currentPageIndex = 0;
     @override
   Widget build(BuildContext context) {
@@ -63,7 +66,7 @@ class _VendeurNavBarState extends State<VendeurNavBar> {
           body: <Widget>[
             Boutique(),
             const VendeurCatalogues(),
-            const Discussion(),
+            const VendeurDiscussionListe(),
             const VendeurProfil()
           ]
           [currentPageIndex],

@@ -1,17 +1,16 @@
+import 'package:epoissonnerie_front/modeles/ClientPoisson.dart';
 import 'package:epoissonnerie_front/modeles/Vendeur.dart';
 import 'package:epoissonnerie_front/pages/Connexion.dart';
 import 'package:epoissonnerie_front/widgets/MySliverAppBar.dart';
 import 'package:flutter/material.dart';
 
-class VendeurProfil extends StatefulWidget {
-  const VendeurProfil({Key? key}) : super(key: key);
+class ClientProfil extends StatefulWidget {
+  const ClientProfil({Key? key}) : super(key: key);
   @override
-  _VendeurProfilState createState() => _VendeurProfilState();
+  _ClientProfilState createState() => _ClientProfilState();
 }
 
-class _VendeurProfilState extends State<VendeurProfil> {
-
-
+class _ClientProfilState extends State<ClientProfil> {
   final String tel = "assets/pictures/Telephone.png";
   final String gmail = "assets/pictures/Gmail.png";
   final String maps = "assets/pictures/Google maps.png";
@@ -19,13 +18,14 @@ class _VendeurProfilState extends State<VendeurProfil> {
   final telcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    Vendeur vendeur = Vendeur(
-        nom: "Abou Diallo",
+    ClientPoisson client = ClientPoisson(
+        nom: "Amadou Diallo",
         tel: 57943994,
         adresse: "Ségou, Pélengana Nord,"
             " Rue 32, Porte 45",
         mdp: 'zapana',
-        photo: 'assets/pictures/vendeur.png'
+        photo: 'assets/pictures/client.png',
+        id: 1
     );
     final double currentWidth = MediaQuery.of(context).size.width;
     final double currentHeight = MediaQuery.of(context).size.height;
@@ -37,23 +37,24 @@ class _VendeurProfilState extends State<VendeurProfil> {
       home: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
-            const MySliverAppBar(titre: 'profil'),
+            const MySliverAppBar(titre: 'profil'
+            ),
             SliverList(
               delegate: SliverChildListDelegate(
                 [
                   Padding(
-                    padding: const EdgeInsets.only(top: 60.0),
+                    padding: const EdgeInsets.only(top: 40.0),
                     child: Column(
                       children: [
                         Container(
                           decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
                             color: Colors.pink,
+                            shape: BoxShape.circle,
                           ),
-                          child: Image.asset(vendeur.photo),
+                          child: Image.asset(client.photo),
                         ),
                         Text(
-                            vendeur.nom.toUpperCase(),
+                          client.nom.toUpperCase(),
                           style: const TextStyle(fontSize: 30),
                         ),
                         Padding(
@@ -67,8 +68,7 @@ class _VendeurProfilState extends State<VendeurProfil> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Image.asset(tel),
-                                    const SizedBox(width: 20),
-                                    Text("${vendeur.tel}", style: const TextStyle(fontSize: 22))
+                                    const SizedBox(width: 20),Text("${client.tel}", style: const TextStyle(fontSize: 22))
                                   ],
                                 ),
                               ),
@@ -84,7 +84,7 @@ class _VendeurProfilState extends State<VendeurProfil> {
                                       width: 300,
                                       child: Center(
                                         child: Text(
-                                          vendeur.adresse.toUpperCase(),
+                                          client.adresse.toUpperCase(),
                                           style: const TextStyle(fontSize: 22),
                                         ),
                                       ),
@@ -108,17 +108,17 @@ class _VendeurProfilState extends State<VendeurProfil> {
                           style: ButtonStyle(
                             padding: WidgetStateProperty.all(
                                 const EdgeInsets.only(
-                                top: 16, bottom: 16, right: 30, left: 30)),
+                                    top: 16, bottom: 16, right: 30, left: 30)),
                             backgroundColor:
                             WidgetStateProperty.all(const Color(0xFF77B5FE)),
                             elevation: WidgetStateProperty.all(9),
                             textStyle: WidgetStateProperty.all(
                                 const TextStyle(
-                                fontFamily: 'Open-Sans-Bold', fontSize: 16)),
+                                    fontFamily: 'Open-Sans-Bold', fontSize: 16)),
                             foregroundColor: WidgetStateProperty.all(Colors.white),
                             shape: WidgetStateProperty.all(
                                 const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(12)))),
+                                    borderRadius: BorderRadius.all(Radius.circular(12)))),
 
                           ),
                           onPressed: () {
@@ -127,9 +127,9 @@ class _VendeurProfilState extends State<VendeurProfil> {
                             });
                           },
                           child: Center(
-                            child: ischanged
-                                ? const Text("CONFIRMER")
-                                : const Text("MODIFIER")
+                              child: ischanged
+                                  ? const Text("CONFIRMER")
+                                  : const Text("MODIFIER")
                           ),
                         ),
                         Padding(
@@ -138,16 +138,16 @@ class _VendeurProfilState extends State<VendeurProfil> {
                             style: ButtonStyle(
                               padding: WidgetStateProperty.all(
                                   const EdgeInsets.only(
-                                  top: 16, bottom: 16, right: 30, left: 30)),
+                                      top: 16, bottom: 16, right: 30, left: 30)),
                               backgroundColor: WidgetStateProperty.all(Colors.red),
                               elevation: WidgetStateProperty.all(9),
                               textStyle: WidgetStateProperty.all(
                                   const TextStyle(
-                                  fontFamily: 'Open-Sans-Bold', fontSize: 16)),
+                                      fontFamily: 'Open-Sans-Bold', fontSize: 16)),
                               foregroundColor: WidgetStateProperty.all(Colors.white),
                               shape: WidgetStateProperty.all(
                                   const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(12)))),
+                                      borderRadius: BorderRadius.all(Radius.circular(12)))),
                             ),
                             onPressed: () {
                               if(ischanged == false){
@@ -160,9 +160,9 @@ class _VendeurProfilState extends State<VendeurProfil> {
                               }
                             },
                             child: Center(
-                              child: ischanged
-                                  ? const Text("ANNULER")
-                                  : const Text("DECONNEXION")
+                                child: ischanged
+                                    ? const Text("ANNULER")
+                                    : const Text("DECONNEXION")
                             ),
                           ),
                         ),
@@ -178,25 +178,3 @@ class _VendeurProfilState extends State<VendeurProfil> {
     );
   }
 }
-
-
-// Padding(
-//                                 padding: const EdgeInsets.all(8.0),
-//                                 child: Row(
-//                                   mainAxisAlignment: MainAxisAlignment.center,
-//                                   crossAxisAlignment: CrossAxisAlignment.center,
-//                                   children: [
-//                                     Image.asset(gmail),
-//                                     const SizedBox(width: 20),
-//                                     ischanged == false
-//                                         ? const Text("Amadouit223@gmail.com", style: TextStyle(fontSize: 22))
-//                                         : Expanded(
-//                                         child: TextField(
-//                                             keyboardType: TextInputType.phone,
-//                                             controller: telcontroller,
-//                                           cursorWidth: 12,
-//                                         )
-//                                     ),
-//                                   ],
-//                                 ),
-//                               ),

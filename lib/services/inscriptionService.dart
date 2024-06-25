@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 
-class InscriptionService {
+class inscriptionService {
   Future<Vendeur> inscription(Vendeur vendeur) async {
     try {
       final response = await http.post(

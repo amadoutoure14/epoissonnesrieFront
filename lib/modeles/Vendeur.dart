@@ -4,7 +4,9 @@ class Vendeur {
   final int tel;
   final String mdp;
   final String adresse;
+  final String photo;
   Vendeur({
+    required this.photo,
     required this.nom,
     required this.tel,
     required this.mdp,
@@ -17,9 +19,10 @@ class Vendeur {
       'nom': String nom,
       'tel': int tel,
       'mdp': String mdp,
-      'adresse': String adresse
-    } => Vendeur(nom: nom, tel: tel, mdp: mdp, adresse: adresse),
-    _=> throw const FormatException('échec de chargement du vendeur !'),
+      'adresse': String adresse,
+      'photo': String photo
+    } => Vendeur(nom: nom, tel: tel, mdp: mdp, adresse: adresse, photo: photo),
+    _=> throw const FormatException('échec de chargement du vendeur!'),
     };
   }
    Map<String, dynamic> toJson() =>
@@ -27,6 +30,7 @@ class Vendeur {
         'nom': nom,
         'adresse': adresse,
         'mdp': mdp,
-        'tel': tel
+        'tel': tel,
+        'photo': photo,
       };
 }

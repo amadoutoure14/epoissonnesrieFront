@@ -158,7 +158,7 @@ class _InscriptionState extends State<Inscription> {
                                         Navigator.push(context, MaterialPageRoute(builder: (context) => const Connexion()));
                                       },
                                       child: const Center(
-                                        child: Text("S'INSCRIRE"),
+                                        child: Text("S'INSCRIRE",style: TextStyle(fontFamily: 'Open-Sans-Bold')),
                                       ),
                                     ),
                                     Padding(
@@ -185,7 +185,7 @@ class _InscriptionState extends State<Inscription> {
                                           Navigator.pop(context);
                                         },
                                         child: const Center(
-                                          child: Text("ANNULER"),
+                                          child: Text("ANNULER",style: TextStyle(fontFamily: 'Open-Sans-Bold')),
                                         ),
                                       ),
                                     ),

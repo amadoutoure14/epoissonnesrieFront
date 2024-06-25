@@ -1,13 +1,13 @@
 class ClientPoisson {
   final int id;
-  final String nomComplet;
+  final String nom;
   final int tel;
   final String mdp;
   final String adresse;
   final String photo;
   ClientPoisson(
       {
-        required this.nomComplet,
+        required this.nom,
         required this.tel,
         required this.mdp,
         required this.adresse,
@@ -17,7 +17,7 @@ class ClientPoisson {
   factory ClientPoisson.fromJson(Map<String, dynamic> json) {
     return ClientPoisson(
         id: json["id"],
-        nomComplet: json["nom_complet"],
+        nom: json["nom"],
         tel: json["tel"],
         mdp: json["mdp"],
         adresse: json["adresse"],
